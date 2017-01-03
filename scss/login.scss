@@ -1,0 +1,28 @@
+
+.login {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: auto;
+	width: auto;
+	text-align: center;
+	transform: translate(-50%, -50%);
+
+	.login-details {	
+		padding-bottom: 30px; 	
+	 	background: #8e8e8e;
+		border-radius: 10px;
+		
+	 	.login-details-title {
+	 		margin: 30px 0;
+	 	}
+
+	 	form {
+	 		width: 500px;
+	 	}
+
+	 	span a {
+	 		color: #fff;
+	 	}
+	}	
+}
