@@ -1,0 +1,58 @@
+.general-info {
+  width: 50%; }
+  .general-info .general-info-cont ul {
+    list-style-type: none; }
+    .general-info .general-info-cont ul li {
+      line-height: 50px;
+      border-bottom: 1px solid #eee; }
+      .general-info .general-info-cont ul li .resetpass {
+        margin-left: 50px; }
+
+.wrap_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(212, 241, 249, 0.5);
+  z-index: 99998;
+  display: none; }
+  .wrap_top .loginpop {
+    position: fixed;
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -150px;
+    z-index: 99999;
+    background: #a6fff2;
+    display: none; }
+    .wrap_top .loginpop > p {
+      width: 100%;
+      height: 40px;
+      background: #74f9ff; }
+      .wrap_top .loginpop > p input {
+        width: 60px;
+        margin-top: 10px;
+        background: none;
+        border: none;
+        cursor: pointer; }
+        .wrap_top .loginpop > p input:first-child {
+          float: left; }
+        .wrap_top .loginpop > p input:last-child {
+          float: right; }
+  .wrap_top .user {
+    padding: 50px 100px; }
+    .wrap_top .user > p {
+      font-size: 14px;
+      margin-bottom: 20px; }
+      .wrap_top .user > p input {
+        width: 220px;
+        height: 30px; }
+  .wrap_top .user form > input {
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #e0ffe8;
+    border-radius: 4px; }

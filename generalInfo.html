@@ -3,14 +3,109 @@
 <head>
 	<meta charset="UTF-8">
 	<title>信息管理</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="lib/font-awesome.min.css">
+	<script type="text/javascript" src="lib/jquery.3.1.1.min.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/dist/style.min.css">
 </head>
-<body class="general-info">
-	<div class="col-md-10 mainSection orderContent">
+<body>
+	<div class="col-md-10 general-info">
 		<ol class="breadcrumb">
-			<li ><a href="#">我的订单</a></li>
-			<li class="active">订单详情</li>
+			<li ><a href="#">信息管理</a></li>
+			<li class="active">基本信息</li>
 		</ol>
+		<div class="general-info-cont">
+			<ul>
+				<li><b>供应商名称：</b><span>重庆飘瑞斯特贸易有限公司</span></li>
+				<li><b>供应商类型：</b><span>装修供应商</span></li>
+				<li><b>供货类型：</b><span>主材</span></li>
+				<li><b>入驻时间：</b><span>2015-08-10 15:20:16</span></li>
+				<li><b>联系人：</b><span>程楠</span></li>
+				<li><b>联系电话：</b><span>13548967845</span></li>
+				<li><b>联系人职位：</b><span>销售总监</span></li>
+				<li><b>联系人邮件：</b><span>chengnan@163.com</span></li>
+				<li><b>供应商座机：</b><span>023-45879654</span></li>
+				<li><b>所属区域：</b><span>北京</span></li>
+				<li><b>登录名：</b><span>CQ_PRST</span></li>
+				<li><b>登录密码：</b><span>*************</span><button type="button" id="btn" class="btn btn-primary resetpass">重置密码</button></li>
+				<li><b>备注：</b><span>甲供主要供应商之一</span></li>
+			</ul>
+			<button type="button" class="btn btn-primary">编辑</button>
+		</div>
+		<!-- <div class="general-info-cont">
+			<dl class="dl-horizontal">
+				<dt>供应商名称：</dt>
+				<dd>重庆飘瑞斯特贸易有限公司</dd>
+				<dt>供应商类型：</dt>
+				<dd>装修供应商</dd>
+				<dt>供货类型：</dt>
+				<dd>主材</dd>
+				<dt>入驻时间：</dt>
+				<dd>2015-08-10 15:20:16</dd>
+				<dt>联系人：</dt>
+				<dd>程楠</dd>
+				<dt>联系电话：</dt>
+				<dd>13548967845</dd>
+				<dt>联系人职位：</dt>
+				<dd>销售总监</dd>
+				<dt>联系人邮件：</dt>
+				<dd>chengnan@163.com</dd>
+				<dt>供应商座机：</dt>
+				<dd>023-45879654</dd>
+				<dt>所属区域：</dt>
+				<dd>北京</dd>
+				<dt>供应商类型：</dt>
+				<dd>装修供应商</dd>
+				<dt>登录名：</dt>
+				<dd>CQ_PRST</dd>
+				<dt>登录密码：</dt>
+				<dd>************* <button type="button">重置密码</button></dd>
+				<dt>备注：</dt>
+				<dd>甲供主要供应商之一</dd>
+			</dl>
+			<button>编辑</button>
+		</div> -->
 	</div>
-	
+
+	<div class="wrap_top" id="mymark"></div>
+			<div class="loginpop" id="pop01">
+				<p>
+					<input type="button" value="登录" id="login">
+					<input type="button" value="关闭" id="off01">
+				</p>
+				<div class="user">
+					<form action="act.php" id="myform">
+						<p>新密码：<input id="myname" type="text" ></p>
+						<p>确认密码：&nbsp;<input id="mypass" type="text" ></p>
+						<input type="button" value="确定">
+
+					</form>
+				</div>
+			</div>
+	<script>
+		window.onload=function(){
+			//onload事件:页面的所有图片，链接，js文件，css文件全部加载完成才会执行；
+			//$documentready：页面结构加载完就会执行;
+				var $login=document.getElementById('btn');
+				var $mymark=document.getElementById('mymark');
+				var $mypop01=document.getElementById('pop01');
+				var $myoff=document.getElementById('off01');
+				var $myname=document.getElementById('myname');
+				var $mypass=document.getElementById('mypass');
+				$login.onclick=function(){
+					$myname.value="";
+					$mypass.value="";
+					$mymark.style.display="block";
+					$mypop01.style.display="block";
+					$mymark.style.height=document.body.scrollHeight+"px";
+				}
+				$myoff.onclick=function(){
+					$mymark.style.display="none";
+					$mypop01.style.display="none";
+				}
+			}	
+	</script>
 </body>
 </html>
