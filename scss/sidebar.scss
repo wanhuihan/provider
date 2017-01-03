@@ -1,0 +1,34 @@
+.sidebar { 
+ 	ul {
+ 		position: fixed;
+	    width: 200px; 
+	    height: 100%;
+ 		padding-top: 50px;    
+	    box-sizing: border-box;
+		text-decoration: none;
+ 		list-style-type: none;
+		background: #4b5664;
+		padding-bottom: 1000px;
+		margin-bottom: -1000px;
+ 		li {
+	    	line-height: 30px; 
+
+		    a {
+		        color: #fff;
+		        font-size: 16px;
+		        display: block;
+		        padding: 10px 20px; 
+
+		        i {
+		            color: #fff;
+		            margin-right: 15px; 
+		    	}
+
+		    	&:hover {
+		    		background-color: #343c48 !important;
+		        	text-decoration: none;
+		    	}
+		    }
+		}
+	}
+}
