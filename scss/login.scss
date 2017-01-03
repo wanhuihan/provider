@@ -8,7 +8,8 @@
 	// // text-align: center;
 	// // transform: translate(-50%, -50%);
 
-	.login-details {	
+	.login-details {
+		width: 500px;	
 		padding-bottom: 30px; 	
 	 	background: #8e8e8e;
 		border-radius: 10px;
@@ -16,11 +17,7 @@
 	 	.login-details-title {
 	 		margin: 30px 0;
 	 	}
-
-	 	form {
-	 		width: 500px;
-	 	}
-
+	 	
 	 	span a {
 	 		color: #fff;
 	 	}
