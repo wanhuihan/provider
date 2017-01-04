@@ -133,7 +133,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
-     $stateProvider.state('info.goodsDetails', {
+     $stateProvider.state('info.providerInfo.goodsDetails', {
         url: '/goodsDetails',       
         views: {
             
