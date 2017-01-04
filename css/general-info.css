@@ -16,43 +16,40 @@
   background: rgba(212, 241, 249, 0.5);
   z-index: 99998;
   display: none; }
-  .wrap_top .loginpop {
-    position: fixed;
-    width: 600px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    margin-left: -300px;
-    margin-top: -150px;
-    z-index: 99999;
-    background: #a6fff2;
-    display: none; }
-    .wrap_top .loginpop > p {
+
+.resetpop {
+  display: none;
+  z-index: 99999;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: auto;
+  width: auto;
+  background: #eee;
+  transform: translate(-50%, -50%); }
+  .resetpop .resetpop-form {
+    overflow: hidden;
+    width: 500px;
+    padding-bottom: 30px;
+    background: #8e8e8e; }
+    .resetpop .resetpop-form .resetpop-title {
       width: 100%;
       height: 40px;
-      background: #74f9ff; }
-      .wrap_top .loginpop > p input {
-        width: 60px;
-        margin-top: 10px;
+      text-align: center;
+      line-height: 40px;
+      background: #999;
+      margin-bottom: 20px; }
+      .resetpop .resetpop-form .resetpop-title span {
+        display: inline-block;
+        width: 40%;
+        text-align: left; }
+      .resetpop .resetpop-form .resetpop-title input {
+        display: inline-block;
+        width: 50%;
+        text-align: right;
         background: none;
         border: none;
         cursor: pointer; }
-        .wrap_top .loginpop > p input:first-child {
-          float: left; }
-        .wrap_top .loginpop > p input:last-child {
-          float: right; }
-  .wrap_top .user {
-    padding: 50px 100px; }
-    .wrap_top .user > p {
-      font-size: 14px;
+    .resetpop .resetpop-form .resetpop-form-text {
+      overflow: hidden;
       margin-bottom: 20px; }
-      .wrap_top .user > p input {
-        width: 220px;
-        height: 30px; }
-  .wrap_top .user form > input {
-    width: 100px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #e0ffe8;
-    border-radius: 4px; }

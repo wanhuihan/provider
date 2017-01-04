@@ -13,46 +13,57 @@
 
 }
 .wrap_top{
-	position: absolute; top:0; left: 0; width: 100%;background: 
-	rgba(212,241,249,0.5);z-index: 99998;display: none;
+	position: absolute; 
+	top:0; left: 0; 
+	width: 100%;
+	background: rgba(212,241,249,0.5);
+	z-index: 99998;
+	display: none;	
+}
+.resetpop {
+	display: none;
+	z-index: 99999;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: auto; 
+	width: auto; 
+	background: #eee;
+	transform: translate(-50%, -50%);
 
-	.loginpop {
-		position: fixed; width: 600px; height: 300px; top: 50%; left: 50%;
-		margin-left: -300px; margin-top: -150px;z-index: 99999; background: #a6fff2;display: none;
-		> p {
-			width: 100%; height: 40px; background: #74f9ff;
+	.resetpop-form {
+		overflow: hidden;
+		width: 500px;
+		padding-bottom: 30px; 	
+	 	background: #8e8e8e;
+
+	 	.resetpop-title {
+			width: 100%; 
+			height: 40px; 
+			text-align: center;
+			line-height: 40px;
+			background: #999;
+			margin-bottom: 20px;
+			span {
+				display: inline-block;
+				width: 40%;
+				text-align: left;
+			}
 			input {
-				width: 60px; margin-top: 10px; background: none; border: none; 
+				display: inline-block;
+				width: 50%;
+				text-align: right;
+				background: none; 
+				border: none; 
 				cursor: pointer;
 
-				&:first-child {
-					float: left;
-				}
-				&:last-child {
-					float: right;
-				}
 			}
 		}
-	}
-	.user{
-		padding: 50px 100px;
-		> p {
-			font-size: 14px;
+		.resetpop-form-text {
+			overflow: hidden;
 			margin-bottom: 20px;
-			input {
-				width: 220px; height:30px;
-			}
 		}
 	}
 	
-	.user form >input{
-		width: 100px; height: 40px; font-size: 16px; font-weight: bold;
-		background: #e0ffe8; border-radius: 4px;
-	}
 }
-// .loginpop>p input:first-child{
-// 	float: left;	
-// }
-// .loginpop>p input:last-child{
-// 	float: right;
-// }
+
