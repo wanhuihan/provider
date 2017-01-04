@@ -37,6 +37,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
+    $stateProvider.state('orders.details', {
+        url: '/details',       
+        views: {
+            
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main@': {
+                templateUrl: 'templates/orderDetails.html',
+            }   
+        }
+    });
+
     // $stateProvider.state('orders.', {
 
     // });

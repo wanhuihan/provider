@@ -1,0 +1,13 @@
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 250px;
+  padding-top: 50px; }
+  .main > div {
+    padding: 15px; }
+  .main .table th {
+    font-weight: normal; }
