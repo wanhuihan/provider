@@ -53,6 +53,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
+    // $stateProvider.state('info', {
+    //     url: '/info',       
+    //     views: {
+            
+    //         'header': {
+    //             templateUrl: 'templates/header.html',
+    //         },            
+    //         'left': {
+    //             templateUrl: 'templates/sideBar.html',
+    //         },
+    //         'main': {
+    //             templateUrl: 'templates/generalInfo.html',
+    //         }   
+    //     }
+    // });
+
     // $stateProvider.state('orders.', {
 
     // });
