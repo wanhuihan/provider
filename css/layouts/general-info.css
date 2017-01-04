@@ -1,7 +1,5 @@
 .general-info {
-  width: 100%; }
-  .general-info .general-info-cont .preserve {
-    margin-left: 50px; }
+  width: 50%; }
   .general-info .general-info-cont ul {
     list-style-type: none; }
     .general-info .general-info-cont ul li {
@@ -9,8 +7,6 @@
       border-bottom: 1px solid #eee; }
       .general-info .general-info-cont ul li .resetpass {
         margin-left: 50px; }
-      .general-info .general-info-cont ul li > input {
-        height: 26px; }
 
 .wrap_top {
   position: absolute;
@@ -29,6 +25,7 @@
   top: 50%;
   margin: auto;
   width: auto;
+  background: #eee;
   transform: translate(-50%, -50%); }
   .resetpop .resetpop-form {
     overflow: hidden;
@@ -55,5 +52,4 @@
         cursor: pointer; }
     .resetpop .resetpop-form .resetpop-form-text {
       overflow: hidden;
-      margin-bottom: 20px;
-      line-height: 34px; }
+      margin-bottom: 20px; }
