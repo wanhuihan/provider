@@ -1,0 +1,59 @@
+.order-refund-details .table:first-child {
+  width: 80%;
+  margin: 20px 0; }
+  .order-refund-details .table:first-child th {
+    width: 10%; }
+
+.order-refund-details .table {
+  margin-top: 20px; }
+  .order-refund-details .table .delivery-info-num {
+    width: 10%; }
+  .order-refund-details .table .delivery-info-time {
+    width: 20%; }
+  .order-refund-details .table .delivery-info-name {
+    width: 70%; }
+    .order-refund-details .table .delivery-info-name span {
+      color: #ccc;
+      font-size: 14px; }
+    .order-refund-details .table .delivery-info-name p {
+      margin: 0; }
+  .order-refund-details .table .info th {
+    border-bottom: 0; }
+    .order-refund-details .table .info th span {
+      line-height: 33px; }
+  .order-refund-details .table td {
+    vertical-align: middle; }
+  .order-refund-details .table .delivery-receipt p span {
+    padding-right: 15px; }
+  .order-refund-details .table .delivery-receipt h6 {
+    color: #5bc0de;
+    font-size: 16px; }
+  .order-refund-details .table .delivery-receipt .delivery-receipt-img {
+    list-style: none;
+    padding: 0; }
+    .order-refund-details .table .delivery-receipt .delivery-receipt-img li {
+      display: inline-block; }
+      .order-refund-details .table .delivery-receipt .delivery-receipt-img li img {
+        max-width: 80px; }
+
+.order-refund-details .order-refund-process {
+  width: 80%; }
+  .order-refund-details .order-refund-process > ul {
+    list-style: none;
+    padding: 0; }
+    .order-refund-details .order-refund-process > ul li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc; }
+      .order-refund-details .order-refund-process > ul li p {
+        margin: 0;
+        padding: 5px 0 0; }
+  .order-refund-details .order-refund-process .order-refund-process-img {
+    padding: 0;
+    margin-top: 10px;
+    list-style: none; }
+    .order-refund-details .order-refund-process .order-refund-process-img li {
+      display: inline-block;
+      padding: 0;
+      border: 0; }
+      .order-refund-details .order-refund-process .order-refund-process-img li img {
+        max-width: 80px; }
