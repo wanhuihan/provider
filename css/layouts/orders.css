@@ -1,0 +1,51 @@
+.order-details #orderInfo .table:first-child {
+  width: 80%;
+  margin: 20px 0; }
+  .order-details #orderInfo .table:first-child th {
+    width: 10%; }
+
+.order-details #deliveryInfo .table {
+  margin-top: 20px; }
+  .order-details #deliveryInfo .table .delivery-info-num {
+    width: 10%; }
+  .order-details #deliveryInfo .table .delivery-info-time {
+    width: 20%; }
+  .order-details #deliveryInfo .table .delivery-info-name {
+    width: 70%; }
+    .order-details #deliveryInfo .table .delivery-info-name span {
+      color: #ccc;
+      font-size: 14px; }
+    .order-details #deliveryInfo .table .delivery-info-name p {
+      margin: 0; }
+  .order-details #deliveryInfo .table .info th {
+    border-bottom: 0; }
+    .order-details #deliveryInfo .table .info th span {
+      line-height: 33px; }
+  .order-details #deliveryInfo .table td {
+    vertical-align: middle; }
+  .order-details #deliveryInfo .table .delivery-receipt p span {
+    padding-right: 15px; }
+  .order-details #deliveryInfo .table .delivery-receipt h6 {
+    color: #5bc0de;
+    font-size: 16px; }
+  .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img {
+    list-style: none;
+    padding: 0; }
+    .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img li {
+      display: inline-block; }
+      .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img li img {
+        max-width: 80px; }
+
+.delivery-details {
+  border: 1px solid;
+  width: 600px; }
+  .delivery-details .delivery-details-title h2 {
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px; }
+  .delivery-details .delivery-details-cont ul {
+    margin: 10px; }
+    .delivery-details .delivery-details-cont ul li {
+      font-size: 14px; }
+      .delivery-details .delivery-details-cont ul li time {
+        color: #ccc; }

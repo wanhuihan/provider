@@ -53,10 +53,42 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
+    $stateProvider.state('orders.refund', {
+        url: '/refund',       
+        views: {
+            
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main@': {
+                templateUrl: 'templates/orderRefund.html',
+            }   
+        }
+    });
+
+    $stateProvider.state('orders.refund.details', {
+        url: '/details',       
+        views: {
+            
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main@': {
+                templateUrl: 'templates/orderRefundDetails.html',
+            }   
+        }
+    });
+
     $stateProvider.state('info', {
         url: '/info',       
         views: {
-            
+          
             'header': {
                 templateUrl: 'templates/header.html',
             },            
