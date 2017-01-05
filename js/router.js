@@ -14,15 +14,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
         views: {
             'main': {
                 templateUrl: 'templates/login.html',
+                controller: 'login'
             },
             'header': {
-                templateUrl: 'templates/header.html',
+                // templateUrl: 'templates/header.html',
             }
         },
     })
 
     $stateProvider.state('orders', {
-        url: '/orders',       
+
+        url: '/orders',      
+         
         views: {
             
             'header': {
@@ -35,6 +38,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'templates/order.html',
             }   
         }
+
     });
 
     $stateProvider.state('orders.details', {
