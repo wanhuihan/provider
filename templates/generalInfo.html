@@ -1,80 +1,54 @@
 <div class="col-md-10 general-info">
-		<ol class="breadcrumb">
-			<li ><a href="#">信息管理</a></li>
-			<li class="active">基本信息</li>
-		</ol>
-		<div class="general-info-cont">
-			<ul>
-				<li><b>供应商名称：</b><span>重庆飘瑞斯特贸易有限公司</span></li>
-				<li><b>供应商类型：</b><span>装修供应商</span></li>
-				<li><b>供货类型：</b><span>主材</span></li>
-				<li><b>入驻时间：</b><span>2015-08-10 15:20:16</span></li>
-				<li><b>联系人：</b><span>程楠</span></li>
-				<li><b>联系电话：</b><span>13548967845</span></li>
-				<li><b>联系人职位：</b><span>销售总监</span></li>
-				<li><b>联系人邮件：</b><span>chengnan@163.com</span></li>
-				<li><b>供应商座机：</b><span>023-45879654</span></li>
-				<li><b>所属区域：</b><span>北京</span></li>
-				<li><b>登录名：</b><span>CQ_PRST</span></li>
-				<li><b>登录密码：</b><span>*************</span><button type="button" id="btn" class="btn btn-primary resetpass">重置密码</button></li>
-				<li><b>备注：</b><span>甲供主要供应商之一</span></li>
-			</ul>
-			<button type="button" class="btn btn-primary">编辑</button>
-		</div>
+	<ol class="breadcrumb">
+		<li ><a ui-sref="info.generalInfo">信息管理</a></li>
+		<li class="active">基本信息</li>
+	</ol>
+	<div class="general-info-cont">
+		<ul>
+			<li><b>供应商名称：</b><span>重庆飘瑞斯特贸易有限公司</span></li>
+			<li><b>供应商类型：</b><span>装修供应商</span></li>
+			<li><b>供货类型：</b><span>主材</span></li>
+			<li><b>入驻时间：</b><span>2015-08-10 15:20:16</span></li>
+			<li><b>联系人：</b><input type="text" value="程楠"></li>
+			<li><b>联系电话：</b><input type="text" value="13548967845"></li>
+			<li><b>联系人职位：</b><input type="text" value="销售总监"></li>
+			<li><b>联系人邮件：</b><input type="text" value="chengnan@163.com"></li>
+			<li><b>供应商座机：</b><input type="text" value="023-45879654"></li>
+			<li><b>所属区域：</b><span>北京</span></li>
+			<li><b>登录名：</b><span>CQ_PRST</span></li>
+			<li><b>登录密码：</b><span>*************</span><button type="button" id="rebtn" class="btn btn-primary resetpass">重置密码</button></li>
+			<li><b>备注：</b><span>甲供主要供应商之一</span></li>
+		</ul>
+		<button type="button" class="btn btn-primary  preserve">保存</button>
 	</div>
+</div>
 	
-	<!-- 弹出层 -->
-	<div class="wrap_top" id="mymark"></div>
-	<div class="resetpop" id="pop01">
-		<form action="act.php" id="myform" class="resetpop-form">
-			<p class="resetpop-title">
-				<span>重置密码</span>
-				<input type="button" value="关闭" id="off01">
-			</p>
-			<div class="form-group resetpop-form-text">
-			    <label for="" class="col-sm-3 col-sm-offset-1 control-label">新密码：</label>
-			    <div class="col-sm-7">
-			        <input type="text" class="form-control" id="myname" placeholder="">
-			    </div>
+<!-- 修改密码弹出层 -->
+<div class="resetpop" id="pop01">
+	<form action="" id="myform" class="resetpop-form">
+		<p class="resetpop-title">
+			<span>重置密码</span>
+			<input type="button" value="关闭" id="off01">
+		</p>
+		<div class="form-group resetpop-form-text">
+		    <label for="" class="col-sm-3 col-sm-offset-1 control-label">新密码：</label>
+		    <div class="col-sm-7">
+		        <input type="password" class="form-control" id="newpass" placeholder="">
+		    </div>
+		</div>
+		<div class="form-group resetpop-form-text">
+		    <label for="" class="col-sm-3 col-sm-offset-1 control-label">确认密码：</label>
+		    <div class="col-sm-7">
+		        <input type="password" class="form-control" id="repass" placeholder="">
+		    </div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-7 col-sm-offset-4">
+				<input type="submit" class="btn btn-primary" value="确定">
+				<input type="button" class="btn btn-default" id="cancel" value="取消">
 			</div>
-			<div class="form-group resetpop-form-text">
-			    <label for="" class="col-sm-3 col-sm-offset-1 control-label">确认密码：</label>
-			    <div class="col-sm-7">
-			        <input type="text" class="form-control" id="mypass" placeholder="">
-			    </div>
-			</div>
-			<div class="form-group">
-				<div class="col-md-7 col-sm-offset-4">
-					<input type="submit" class="btn btn-primary" value="确定">
-					<input type="button" class="btn btn-default" id="cancel" value="取消">
-				</div>
-			</div>
-		</form>
-		
-	</div>
-	<script>
-		window.onload=function(){
-			var $login=document.getElementById('btn');
-			var $mymark=document.getElementById('mymark');
-			var $mypop01=document.getElementById('pop01');
-			var $myoff=document.getElementById('off01');
-			var $myname=document.getElementById('myname');
-			var $mypass=document.getElementById('mypass');
-			var $cancel=document.getElementById('cancel');
-			$login.onclick=function(){
-				$myname.value="";
-				$mypass.value="";
-				$mymark.style.display="block";
-				$mypop01.style.display="block";
-				$mymark.style.height=document.body.scrollHeight+"px";
-			}
-			$myoff.onclick=function(){
-				$mymark.style.display="none";
-				$mypop01.style.display="none";
-			}
-			$cancel.onclick=function(){
-				$mymark.style.display="none";
-				$mypop01.style.display="none";
-			}
-		}	
-	</script>
+		</div>
+	</form>
+	
+</div>
+

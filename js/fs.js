@@ -1,3 +1,4 @@
+<<<<<<< .mine
 
 var g = {
 
@@ -5,3 +6,12 @@ var g = {
 	cookieName: 'fs_provider',
 
 }
+=======
+
+
+
+
+
+
+
+>>>>>>> .theirs

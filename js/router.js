@@ -89,21 +89,70 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
-    // $stateProvider.state('info', {
-    //     url: '/info',       
-    //     views: {
+    $stateProvider.state('info', {
+        url: '/info',       
+        views: {
+          
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main': {
+                templateUrl: 'templates/generalInfo.html',
+            }   
+        }
+    });
+
+     $stateProvider.state('info.generalInfo', {
+        url: '/generalInfo',       
+        views: {
             
-    //         'header': {
-    //             templateUrl: 'templates/header.html',
-    //         },            
-    //         'left': {
-    //             templateUrl: 'templates/sideBar.html',
-    //         },
-    //         'main': {
-    //             templateUrl: 'templates/generalInfo.html',
-    //         }   
-    //     }
-    // });
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main@': {
+                templateUrl: 'templates/generalInfo.html',
+            }   
+        }
+    });
+
+     $stateProvider.state('info.providerInfo', {
+        url: '/providerInfo',       
+        views: {
+            
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main@': {
+                templateUrl: 'templates/providerInfo.html',
+            }   
+        }
+    });
+
+     $stateProvider.state('info.providerInfo.goodsDetails', {
+        url: '/goodsDetails',       
+        views: {
+            
+            'header': {
+                templateUrl: 'templates/header.html',
+            },            
+            'left': {
+                templateUrl: 'templates/sideBar.html',
+            },
+            'main@': {
+                templateUrl: 'templates/goodsDetails.html',
+            }   
+        }
+    });
+    
 
     // $stateProvider.state('orders.', {
 
