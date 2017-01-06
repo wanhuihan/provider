@@ -101,6 +101,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
             'main': {
                 templateUrl: 'templates/generalInfo.html',
+                controller: 'info'
             }   
         }
     });

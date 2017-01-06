@@ -47,3 +47,9 @@
       overflow: hidden;
       margin-bottom: 20px;
       line-height: 34px; }
+
+.resetPwd .form label {
+  min-width: 100px; }
+
+.resetPwd .form .form-group:last-child {
+  text-align: center; }

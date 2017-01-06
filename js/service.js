@@ -26,16 +26,13 @@ app.service("cookie", function($cookies, $cookieStore) {
 
 	service.chkCookie =function() {
 
-		if ($cookieStore.get(g.cookieName) == undefined) {
-
+		// console.log(document.cookie);
+		var cookieVal = document.cookie;
+		if (cookieVal.indexOf(g.cookieName) >= 0) {
+			return true;
+		} else {
 			return false;
 		}
-
-		else {
-			
-			return true;
-		}
-
 	}
 
 	return service;
