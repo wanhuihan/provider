@@ -2,28 +2,33 @@
 app.controller("login", function($scope, $http, $cookies, $location, cookie, $cookieStore) {
 
 	$scope.login = {
+
 		user: '',
+
 		pwd: ''
 	}
 
 	$scope.reg = {
+
 		user: '',
+
 		pwd: '',
 	}
 
 	$scope.doLogin = function() {
 
-		var date = new Date().getTime() + 500000;
-		$cookies.put('test','test', {'expires': new Date(date)})
-
-		return false;
 		$http({
+
 			url: g.host+'/decoration_supplier/login/login',
+
 			method: 'post',
+
 			data: {
 				userName: $scope.login.user,
+
 				pwd: $scope.login.pwd,
 			},
+
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
 	        // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
 	        transformRequest: function(obj) {    
@@ -39,16 +44,20 @@ app.controller("login", function($scope, $http, $cookies, $location, cookie, $co
 	            }    
 	            // console.log(str)
 	            return str.join("&");    
+
 	        }			
+
 		}).success(function(data) {
 
 			// console.log(data);
 			if (data.success) {
 
-				var expireDate = new Date().data.exp;
+				var expireDate = new Date().getTime() + data.exp;
 
 				$cookies.put(g.cookieName, data.token, {'expires': new Date(expireDate)});
-	
+				
+				window.localStorage.loginName = data.loginName
+
 				$location.path("/info");	
 
 			} else {
@@ -62,7 +71,7 @@ app.controller("login", function($scope, $http, $cookies, $location, cookie, $co
 
 	}
 
-	if (cookie.chkCookie()) {
+	if (cookie.check()) {
 
 		$location.path("/info");
 
@@ -70,21 +79,20 @@ app.controller("login", function($scope, $http, $cookies, $location, cookie, $co
 
 })
 
-app.controller("info", function($http, $scope, ngDialog, cookie, $location, $cookies) {
+app.controller("info", function($http, $scope, $window, ngDialog, cookie, $location, $cookies) {
 
-	if (!cookie.chkCookie()) {
+	if (!cookie.check()) {
 
 		$location.path("/login");
 
 	} else {
 
-		// $scope.get
-
-
-		$scope.cookie = $cookies[g.cookieName];
+		// console.log(window.localStorage)
+		$scope.cookie = $cookies.get(g.cookieName);
 
 		$scope.$watch('cookie', function(a) {
 
+			// console.log($cookies.get(g.cookieName));			
 			$scope.ajaxData();
 		})
 
@@ -97,13 +105,202 @@ app.controller("info", function($http, $scope, ngDialog, cookie, $location, $coo
 				method: 'post',
 				
 				data: {
-					token: $cookies[g.cookieName],
-					decorationTaskCode: '516122800000093',
-					serialNumber: '3',
-					ordersId: '515febffd0b944908a997d0b164135e6',
-					loginName: 'leiman'
+
+					token: $scope.cookie,
+
+					loginName: window.localStorage.loginName
 				},
 
+	            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+	            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
+	            transformRequest: function(obj) {   
+
+	                var str = [];    
+
+	                for (var p in obj) {    
+	                    
+	                    if (typeof obj[p] == 'object' ) {
+
+	                        // console.log(p, JSON.stringify(obj[p]));
+	                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
+	                    
+	                    } else {
+
+	                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
+	                    
+	                    }                     
+	                }    
+	                // console.log(str)
+	                return str.join("&");    
+	            }			
+
+			}).success(function(data) {
+				
+				$scope.data = data.data.supplier;
+
+				$scope.contact = {
+
+					name: data.data.supplier.contactName,
+
+					cell: data.data.supplier.contactPhone,
+
+					title: data.data.supplier.contactTitle,
+
+					email: data.data.supplier.contactEmail,
+
+					phone: data.data.supplier.companyPhone,
+
+				}
+			})			
+		}
+
+	} 
+
+	$scope.resetPwd = function() {
+
+		ngDialog.open({
+			id: 'resetPwd',
+			scope: $scope,
+			closeByEscape: false,
+			closeByDocument: false,
+			templateUrl: 'templates/resetPwd.html',
+			className: 'ngdialog ngdialog-theme-default resetPwd',
+
+			controller: 'resetPwd'
+			
+		})
+	}
+
+	$scope.editInfoSave = function() {
+
+		// console.log($scope.contact);
+
+		$http({
+
+			url: g.host+'/decoration_supplier/basic/updateSupplierBySupplierId',
+			
+			method: 'post',
+
+			data: {
+
+				supplier : {
+
+					contactName: $scope.contact.name,
+
+					contactPhone: $scope.contact.cell,
+
+					contactTitle: $scope.contact.title,
+
+					contactEmail: $scope.contact.email,
+
+					companyPhone: $scope.contact.phone,
+
+					supplierId: $scope.data.supplierId
+
+				},
+
+				token: $scope.cookie,
+
+			},
+
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
+            transformRequest: function(obj) {   
+
+                var str = [];    
+
+                for (var p in obj) {    
+                    
+                    if (typeof obj[p] == 'object' ) {
+
+                        // console.log(p, JSON.stringify(obj[p]));
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
+                    
+                    } else {
+
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
+                    
+                    }                     
+                }    
+                // console.log(str)
+                return str.join("&");    
+            }			
+		}).success(function(data) {
+
+			if (data.code == 0) {
+
+				$window.location.reload();
+
+			} else {
+
+				alert(data.msg);
+
+				return false;
+			}
+			// console.log(data);
+
+		})
+	}
+
+})
+
+
+/**
+ * 修改密码窗口 controller
+**/
+
+app.controller("resetPwd", function($scope, $http, $location, $cookies) {
+
+	// console.log($scope.data.loginPassword);				
+	$scope.resetPwd = {
+
+		oldPwd: '',
+		newPwd: '',
+		newPwdConf: '',
+	}
+
+	$scope.resetPwdSub = function() {
+
+		if ($scope.resetPwd.newPwd !== $scope.resetPwd.newPwdConf && $scope.resetPwd.oldPwd != '') {
+			
+			alert('新密码输入不一致，请重新输入');
+			
+			return false;
+
+		} else if ($scope.resetPwd.oldPwd == '') {
+
+			alert('请输入原始密码');
+
+			return false;
+
+		} else if ( $scope.resetPwd.newPwd =='' || $scope.resetPwd.newPwdConf == '') {
+			
+			alert('请输入新密码');
+
+			return false;
+
+		}
+
+		else {
+
+			var loginName = $scope.data.loginName;
+
+			var supplierId = $scope.data.supplierId;
+
+			$http({
+
+				url: g.host+'/decoration_supplier/basic/updateSupplierPwd',
+				
+				method: 'post',
+				
+				data: {
+					loginName : loginName, 
+					oldPwd : $scope.resetPwd.oldPwd,
+					newPwd : $scope.resetPwd.newPwd,
+					supplierId: supplierId,
+					token: $cookies.get(g.cookieName)
+
+				},
 	            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
 	            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
 	            transformRequest: function(obj) {    
@@ -119,115 +316,36 @@ app.controller("info", function($http, $scope, ngDialog, cookie, $location, $coo
 	                }    
 	                // console.log(str)
 	                return str.join("&");    
-	            }			
-
+	            }
 			}).success(function(data) {
 				
-				$scope.data = data.data.supplier;
+				if (data.code == 0) {
 
-				$scope.contact = {
+					alert('修改成功');
 
-					name: data.data.supplier.contactName,
-					cell: data.data.supplier.contactPhone,
-					title: data.data.supplier.contactTitle,
-					email: data.data.supplier.contactEmail,
-					phone: data.data.supplier.companyPhone,
+					cookie.remove();
+					ngDialog.close('resetPwd');
+
+				} else {
+
+					alert(data.msg);
+
+					return false;
 
 				}
-			})			
+			})
 		}
-
-	} 
-
-	$scope.resetPwd = function() {
-
-		ngDialog.open({
-
-			scope: $scope,
-			closeByEscape: false,
-			closeByDocument: false,
-			templateUrl: 'templates/resetPwd.html',
-			className: 'ngdialog ngdialog-theme-default resetPwd',
-			controller: function($scope, $http, $location, $cookies) {
-
-				// console.log($scope.data.loginPassword);				
-				$scope.resetPwd = {
-					oldPwd: '',
-					newPwd: '',
-					newPwdConf: '',
-				}
-
-				$scope.resetPwdSub = function() {
-
-					if ($scope.resetPwd.newPwd !== $scope.resetPwd.newPwdConf && $scope.resetPwd.oldPwd != '') {
-						
-						alert('新密码输入不一致，请重新输入');
-						
-						return false;
-
-					} else if ($scope.resetPwd.oldPwd == '') {
-
-						alert('请输入原始密码');
-
-						return false;
-
-					} else if ( $scope.resetPwd.newPwd =='' || $scope.resetPwd.newPwdConf == '') {
-						
-						alert('请输入新密码');
-
-						return false;
-
-					}
-
-					else {
-						var loginName = $scope.data.loginName;
-						var supplierId = $scope.data.supplierId;
-						$http({
-							url: g.host+'/decoration_supplier/basic/updateSupplierPwd',
-							method: 'post',
-							data: {
-								loginName : loginName, 
-								oldPwd : $scope.resetPwd.oldPwd,
-								newPwd : $scope.resetPwd.newPwd,
-								supplierId: supplierId,
-								// token: $cookies[g.cookieName]
-								token: '307FEEB1BC5F1BA65D1B5CE7549714D4'
-							},
-				            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-				            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
-				            transformRequest: function(obj) {    
-				                var str = [];    
-				                for (var p in obj) {    
-				                    
-				                    if (typeof obj[p] == 'object' ) {
-				                        // console.log(p, JSON.stringify(obj[p]));
-				                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
-				                    } else {
-				                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
-				                    }                     
-				                }    
-				                // console.log(str)
-				                return str.join("&");    
-				            }
-						}).success(function(data) {
-							console.log(123123);
-						})
-					}
-				}
-
-			},
-			
-		})
 	}
 
 })
+
 
 /*
  * 供货信息
 */
 app.controller("providerInfo", function($http, $scope, ngDialog, cookie, $location, $cookies) {
 
-	if (!cookie.chkCookie()) {
+	if (!cookie.check()) {
 
 		$location.path("/login");
 
@@ -277,7 +395,7 @@ app.controller("providerInfo", function($http, $scope, ngDialog, cookie, $locati
 */
 app.controller("goodsDetails", function($http, $scope, ngDialog, cookie, $location, $cookies) {
 
-	if (!cookie.chkCookie()) {
+	if (!cookie.check()) {
 
 		$location.path("/login");
 
@@ -332,7 +450,7 @@ app.controller("goodsDetails", function($http, $scope, ngDialog, cookie, $locati
 */
 app.controller("orders", function($http, $scope, ngDialog, cookie, $location, $cookies, $cookieStore) {
 
-	if (!cookie.chkCookie()) {
+	if (!cookie.check()) {
 
 		$location.path("/login");
 
@@ -344,11 +462,8 @@ app.controller("orders", function($http, $scope, ngDialog, cookie, $location, $c
 			method: 'post',
 			
 			data: {
-				token: $cookies[g.cookieName],
-				decorationTaskCode: '516122800000093',
-				serialNumber: '3',
-				ordersId: '515febffd0b944908a997d0b164135e6',
-				loginName: 'leiman',
+				token: $cookies.get(g.cookieName),
+				loginName: window.localStorage.loginName,
 			},
 
             headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
@@ -382,7 +497,7 @@ app.controller("orders", function($http, $scope, ngDialog, cookie, $location, $c
 */
 app.controller("orderDetails", function($http, $scope, ngDialog, cookie, $location, $cookies) {
 
-	if (!cookie.chkCookie()) {
+	if (!cookie.check()) {
 
 		$location.path("/login");
 
@@ -435,7 +550,7 @@ app.controller("orderDetails", function($http, $scope, ngDialog, cookie, $locati
 */
 app.controller("refund", function($http, $scope, ngDialog, cookie, $location, $cookies) {
 
-	if (!cookie.chkCookie()) {
+	if (!cookie.check()) {
 
 		$location.path("/login");
 

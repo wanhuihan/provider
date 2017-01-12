@@ -1,9 +1,10 @@
 <div class="col-md-10 general-info">
-	{{contact}}
+
 	<ol class="breadcrumb">
 		<li ><a ui-sref="info">信息管理</a></li>
 		<li class="active">基本信息</li>
 	</ol>
+
 	<div class="general-info-cont">
 		<ul>
 			<li><b>供应商名称：</b><span>{{data.supplierName}}</span></li>
@@ -15,12 +16,12 @@
 			<li><b>联系人职位：</b><input type="text" ng-model="contact.title"></li>
 			<li><b>联系人邮件：</b><input type="text" ng-model="contact.email"></li>
 			<li><b>供应商座机：</b><input type="text" ng-model="contact.phone"></li>
-			<li><b>所属区域：</b><span>{{data.areaId}}</span></li>
+			<li><b>所属区域：</b><span>{{data.areaGenus}}</span></li>
 			<li><b>登录名：</b><span>{{data.loginName}}</span></li>
-			<li><b>登录密码：</b><span>{{data.loginPassword}}</span><button type="button" id="rebtn" class="btn btn-primary resetpass" ng-click="resetPwd()">重置密码</button></li>
+			<li><b>登录密码：</b><span>************</span><button type="button" id="rebtn" class="btn btn-primary resetpass" ng-click="resetPwd()">重置密码</button></li>
 			<li><b>备注：</b><span>{{data.remark}}</span></li>
 		</ul>
-		<button type="button" class="btn btn-primary  preserve">保存</button>
+		<button type="button" class="btn btn-primary  preserve save" ng-click="editInfoSave()">保存</button>
 	</div>
 </div>
 	
