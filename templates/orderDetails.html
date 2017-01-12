@@ -10,33 +10,32 @@
 
 					<tr>
 						<th>订单状态</th>
-						<td></td>
+						<td>{{orderInfo.status}}</td>
 						<th>订单号</th>
-						<td></td>
+						<td>{{orderInfo.supplierOrderNumber}}</td>
 						<th>下单时间</th>
-						<td></td>
+						<td>{{orderInfo.createTime | date: 'yy年MM月dd日'}}</td>
 					</tr>
 
 					<tr>
 						<th>收货人</th>
-						<td></td>
+						<td>{{orderInfo.consignee}}</td>
 						<th>收货电话</th>
-						<td></td>
+						<td>{{orderInfo.consigneePhone}}</td>
 						<th>收货地址</th>
-						<td></td>
+						<td>{{orderInfo.address}}</td>
 					</tr>
 
 					<tr>
 						<th>进场时间</th>
-						<td></td>
+						<td>{{orderInfo.setEntryTime}}</td>
 						<th>所属区域</th>
-						<td></td>
+						<td>{{orderInfo.areaGenus}}</td>
 						<th>供应商</th>
-						<td></td>
+						<td>{{orderInfo.supplierName}}</td>
 					</tr>
 
 			</table>
-
 			<table class="table table-bordered">
 				<thead>
 					<tr>
@@ -52,15 +51,15 @@
 				</thead>
 
 				<tbody>
-					<tr>
+					<tr ng-repeat="item in billList">
 						<td  align="center"><input type="checkbox" name=""></td>
-						<td></td>
-						<td>SMW2016254879</td>
-						<td>樘</td>
-						<td>￥2500</td>
-						<td>1</td>						
-						<td>发货状态</td>
-						<td>5000</td>
+						<td>{{item.name}}</td>
+						<td>{{item.materialCode}}</td>
+						<td>{{item.unit}}</td>
+						<td>{{item.unitPrice}}</td>
+						<td>{{item.count}}</td>						
+						<td>{{item.status}}</td>
+						<td>{{item.total}}</td>
 					</tr>
 					<tr>
 						<td  align="center"><input type="checkbox" name="" checked="" disabled=""></td>

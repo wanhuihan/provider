@@ -1,5 +1,5 @@
 
-app.service("cookie", function($cookies, $cookieStore) {
+app.service("cookie", function($cookies) {
 
 	var service = {};
 
@@ -12,18 +12,12 @@ app.service("cookie", function($cookies, $cookieStore) {
 	}
 
 	//  c is cookie value
-	service.getCookie = function(c) {
+	// service.getCookie = function() {
 
-		// console.log($cookieStore)
-		if ($cookieStore.get(g.cookieName) == undefined) {
-			return false;
-		}
+	// 	return $cookies[g.cookieName];
+	// }
 
-		else {
-			return true;
-		}
-	}
-
+	// 
 	service.chkCookie =function() {
 
 		// console.log(document.cookie);

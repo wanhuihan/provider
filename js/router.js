@@ -33,16 +33,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
+                controller: function($scope) {
+                    $scope.page = 'orders'
+                }
             },
             'main': {
                 templateUrl: 'templates/order.html',
+                controller: 'orders'
             }   
         }
 
     });
 
     $stateProvider.state('orders.details', {
-        url: '/details',       
+        url: '/details?id',       
         views: {
             
             'header': {
@@ -53,6 +57,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
             'main@': {
                 templateUrl: 'templates/orderDetails.html',
+                controller: 'orderDetails'
             }   
         }
     });
@@ -69,6 +74,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
             'main@': {
                 templateUrl: 'templates/orderRefund.html',
+                controller: 'refund'
             }   
         }
     });
@@ -98,6 +104,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
+                controller: function($scope) {
+                    $scope.page = 'info';
+                }
             },
             'main': {
                 templateUrl: 'templates/generalInfo.html',
@@ -134,12 +143,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
             'main@': {
                 templateUrl: 'templates/providerInfo.html',
+                controller: 'providerInfo'
             }   
         }
     });
 
      $stateProvider.state('info.providerInfo.goodsDetails', {
-        url: '/goodsDetails',       
+        url: '/goodsDetails?id',       
         views: {
             
             'header': {
@@ -150,6 +160,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             },
             'main@': {
                 templateUrl: 'templates/goodsDetails.html',
+                controller: 'goodsDetails'
             }   
         }
     });

@@ -1,10 +1,25 @@
 <div class="sidebar">
 
-	<ul>
-		<li><a href="">销售订单<i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
-		<li><a href="">退换货订单
-		<i class="fa fa-angle-right" aria-hidden="true"></i></a> 
-		</li>
-	</ul>
+	<div ng-if="page=='info'">
+
+		<ul>
+			<li><a ui-sref="info">基本信息<i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+			<li><a ui-sref="info.providerInfo">供货信息
+			<i class="fa fa-angle-right" aria-hidden="true"></i></a> 
+			</li>
+		</ul>
+
+	</div>
+
+	<div ng-if="page=='orders'">
+
+		<ul>
+			<li><a ui-sref="orders">销售订单<i class="fa fa-angle-right" aria-hidden="true"></i></a> </li>
+			<li><a ui-sref="orders.refund">退换货订单
+			<i class="fa fa-angle-right" aria-hidden="true"></i></a> 
+			</li>
+		</ul>
+
+	</div>
 
 </div>

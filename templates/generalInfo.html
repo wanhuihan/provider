@@ -1,23 +1,24 @@
 <div class="col-md-10 general-info">
+	{{contact}}
 	<ol class="breadcrumb">
-		<li ><a ui-sref="info.generalInfo">信息管理</a></li>
+		<li ><a ui-sref="info">信息管理</a></li>
 		<li class="active">基本信息</li>
 	</ol>
 	<div class="general-info-cont">
 		<ul>
-			<li><b>供应商名称：</b><span>重庆飘瑞斯特贸易有限公司</span></li>
-			<li><b>供应商类型：</b><span>装修供应商</span></li>
-			<li><b>供货类型：</b><span>主材</span></li>
-			<li><b>入驻时间：</b><span>2015-08-10 15:20:16</span></li>
-			<li><b>联系人：</b><input type="text" value="程楠"></li>
-			<li><b>联系电话：</b><input type="text" value="13548967845"></li>
-			<li><b>联系人职位：</b><input type="text" value="销售总监"></li>
-			<li><b>联系人邮件：</b><input type="text" value="chengnan@163.com"></li>
-			<li><b>供应商座机：</b><input type="text" value="023-45879654"></li>
-			<li><b>所属区域：</b><span>北京</span></li>
-			<li><b>登录名：</b><span>CQ_PRST</span></li>
-			<li><b>登录密码：</b><span>*************</span><button type="button" id="rebtn" class="btn btn-primary resetpass" ng-click="resetPwd()">重置密码</button></li>
-			<li><b>备注：</b><span>甲供主要供应商之一</span></li>
+			<li><b>供应商名称：</b><span>{{data.supplierName}}</span></li>
+			<li><b>供应商类型：</b><span>{{data.supplierType}}</span></li>
+			<li><b>供货类型：</b><span>{{data.supplyType}}</span></li>
+			<li><b>入驻时间：</b><span>{{data.createTime}}</span></li>
+			<li><b>联系人：</b><input type="text" ng-model="contact.name"></li>
+			<li><b>联系电话：</b><input type="text" ng-model="contact.cell"></li>
+			<li><b>联系人职位：</b><input type="text" ng-model="contact.title"></li>
+			<li><b>联系人邮件：</b><input type="text" ng-model="contact.email"></li>
+			<li><b>供应商座机：</b><input type="text" ng-model="contact.phone"></li>
+			<li><b>所属区域：</b><span>{{data.areaId}}</span></li>
+			<li><b>登录名：</b><span>{{data.loginName}}</span></li>
+			<li><b>登录密码：</b><span>{{data.loginPassword}}</span><button type="button" id="rebtn" class="btn btn-primary resetpass" ng-click="resetPwd()">重置密码</button></li>
+			<li><b>备注：</b><span>{{data.remark}}</span></li>
 		</ul>
 		<button type="button" class="btn btn-primary  preserve">保存</button>
 	</div>
