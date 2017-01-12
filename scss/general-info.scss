@@ -77,3 +77,15 @@
 	
 }
 
+.resetPwd {
+	.form {
+		label {
+			min-width: 100px;
+		}
+		.form-group {
+			&:last-child {
+				text-align: center;
+			}
+		}
+	}
+}
