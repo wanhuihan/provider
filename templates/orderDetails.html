@@ -36,10 +36,11 @@
 					</tr>
 
 			</table>
-			<table class="table table-bordered">
+			<table class="table table-bordered order-items-list">
 				<thead>
 					<tr>
-						<th align="center"><input type="checkbox" name=""></th>
+						<th align="center">
+						<input type="checkbox"  name="" ng-click="checkboxSelect($event)"></th>
 						<th>商品名称</th>
 						<th>商品编号</th>
 						<th>单位</th>
@@ -51,36 +52,18 @@
 				</thead>
 
 				<tbody>
-					<tr ng-repeat="item in billList">
-						<td  align="center"><input type="checkbox" name=""></td>
+					<tr ng-repeat="item in billList" class="items">
+						<td  align="center">
+							<input type="checkbox" name="" ng-if="item.status==1" value="{{item.supplierMaterialsMiddleId}}">
+						</td>
 						<td>{{item.name}}</td>
 						<td>{{item.materialCode}}</td>
 						<td>{{item.unit}}</td>
 						<td>{{item.unitPrice}}</td>
 						<td>{{item.count}}</td>						
-						<td>{{item.status}}</td>
+						<td>{{item.statusValue}}</td>
 						<td>{{item.total}}</td>
 					</tr>
-					<tr>
-						<td  align="center"><input type="checkbox" name="" checked="" disabled=""></td>
-						<td></td>
-						<td>SMW2016254879</td>
-						<td>樘</td>
-						<td>￥2500</td>
-						<td>1</td>						
-						<td>已验收</td>
-						<td>2000</td>
-					</tr>
-					<tr>
-						<td  align="center"><input type="checkbox" name="" checked="" disabled=""></td>
-						<td></td>
-						<td>SMW2016254879</td>
-						<td>樘</td>
-						<td>￥2500</td>
-						<td>1</td>						
-						<td>已发货</td>
-						<td>1000</td>
-					</tr>	
 
 					<tr>
 						<td  align="center"></td>
@@ -94,8 +77,8 @@
 					</tr>
 					<tr>
 						<td colspan="8">
-							<button class="btn btn-primary">发货</button>
-							<button class="btn btn-default"> 订单打印</button>
+							<button class="btn btn-primary" ng-click="delivery($event)">发货</button>
+							<button class="btn btn-default" ng-click="print()"> 订单打印</button>
 						</td>
 					</tr>									
 				</tbody>

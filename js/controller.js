@@ -503,20 +503,25 @@ app.controller("orderDetails", function($http, $scope, ngDialog, cookie, $locati
 
 	} else {
 
-		var orderNum = $location.$$search.id;
+		$scope.orderNum = $location.$$search.id;
 
+		$scope.decorationTaskCode = $location.$$search.code;
+
+		// 获取订单信息，包括订单信息和订单列表
 		$http({
+
 			url: g.host+'/decoration_supplier/order/selectOrderDetailBysupplierOrderNumber',
 			
 			method: 'post',
 			
 			data: {
-				token: '7436bf89-b026-43d4-9298-af45c4c0a58a',
-				decorationTaskCode: '516122800000093',
-				serialNumber: '3',
-				ordersId: '515febffd0b944908a997d0b164135e6',
-				loginName: 'leiman',
-				supplierOrderNumber: orderNum
+
+				token: $cookies.get(g.cookieName),
+
+				loginName: window.localStorage.loginName,
+
+				supplierOrderNumber: $scope.orderNum
+
 			},
 
             headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
@@ -538,10 +543,182 @@ app.controller("orderDetails", function($http, $scope, ngDialog, cookie, $locati
 
 		}).success(function(data) {
 			// console.log(data);
-			$scope.billList = data.data.billMaterialList;
+			$scope.billList = data.data.supplierMaterialsMiddleList;
+			// console.log($scope.billLis)
 			$scope.orderInfo = data.data.supplierMaterialOrder;
 		})
+
+		$scope.$watch("orderInfo", function(data) {
+			
+			if (data) {
+			// 获取发货信息
+				$http({
+
+					url: g.host+'/decoration_supplier/order/viewSupplierMaterialOrder',
+
+					method: 'post',
+
+					data: {
+
+						supplierId: data.supplierId,
+
+						supplierMaterialOrderId: data.supplierMaterialOrderId
+
+					},
+
+		            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+		            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
+		            transformRequest: function(obj) {    
+		                var str = [];    
+		                for (var p in obj) {    
+		                    
+		                    if (typeof obj[p] == 'object' ) {
+		                        // console.log(p, JSON.stringify(obj[p]));
+		                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
+		                    } else {
+		                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
+		                    }                     
+		                }    
+		                // console.log(str)
+		                return str.join("&");    
+		            }	
+		            				
+				}).success(function(data) {
+					console.log(data)
+				})
+			}
+		})
+
+
 	} 
+
+	$scope.checkboxSelect = function(e) {
+
+		var checkbox = jQuery(e.target).parents(".table").find(".items input[type='checkbox']");
+		if (e.target.checked) {
+
+			checkbox.prop("checked", 'checked');
+		
+		} else {
+			// console.log(checkbox);
+			checkbox.prop("checked", false);
+			// jQuery(e.target).parents(".table").find(".items input[type='checkbox']")
+		}
+	}
+
+	$scope.delivery = function(e) {
+
+
+		var checkbox = jQuery(e.target).parents(".table").find(".items input[type='checkbox']:checked");
+
+		$scope.ids = [];
+
+		if (checkbox.length > 0) {
+
+			for (var i = 0; i < checkbox.length; i++) {
+				// console.log(jQuery(checkbox[i]).val());
+				$scope.ids.push(jQuery(checkbox[i]).val());
+
+			}		
+
+		}
+
+		if ($scope.ids.length > 0) {
+
+			ngDialog.open({
+				id: 'delivery',
+				templateUrl: 'templates/deliverySend.html',
+				scope: $scope,
+				controller: 'delivery'
+			})
+
+		} else {
+
+			alert('未选择商品');
+
+			return false;
+
+		}
+
+		return false;
+	}
+
+	$scope.print = function() {
+
+		window.print();
+
+	}
+})
+
+/*
+ *
+*/
+
+app.controller("delivery", function($http, $window, $location, $cookies, $scope, ngDialog) {
+
+	$scope.waybillCode = '';
+
+	$scope.logisticsCompany = '';
+
+	$scope.send = function() {
+
+		$http({
+			url: g.host+'/decoration_supplier/order/sendMaterial',
+			
+			method: 'post',
+			
+			data: {
+
+				token: $cookies.get(g.cookieName),
+
+				loginName: window.localStorage.loginName,
+
+				ids: $scope.ids.join(","),
+
+				supplierOrderNumber: $scope.orderNum,
+
+				decorationTaskCode: $scope.decorationTaskCode,
+
+				waybillCode: $scope.waybillCode,
+
+				logisticsCompany: $scope.logisticsCompany
+
+			},
+
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
+            transformRequest: function(obj) {    
+                var str = [];    
+                for (var p in obj) {    
+                    
+                    if (typeof obj[p] == 'object' ) {
+                        // console.log(p, JSON.stringify(obj[p]));
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
+                    } else {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
+                    }                     
+                }    
+                // console.log(str)
+                return str.join("&");    
+            }			
+
+		}).success(function(data) {
+			// console.log(data);
+			if (data.code == 0) {
+
+				ngDialog.close("delivery");
+
+				$window.location.reload();
+
+			}
+		})		
+	}
+
+	$scope.cancel = function() {
+
+		ngDialog.close("delivery");
+
+	}
 
 })
 

@@ -46,7 +46,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state('orders.details', {
-        url: '/details?id',       
+        url: '/details?id&code',       
         views: {
             
             'header': {
