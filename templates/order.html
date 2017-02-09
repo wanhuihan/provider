@@ -40,7 +40,7 @@
 				<td>{{item.supplierOrderNumber}}</td>
 				<td>{{item.createTime | date:'yyyy年MM月dd日'}}</td>
 				<td>{{item.consignee}}</td>
-				<td>{{item.total}}</td>
+				<td>{{item.total | currency:''}}</td>
 				<td>{{item.status}}</td>
 				<td>{{item.areaGenus}}</td>
 				<td><a ui-sref="orders.details({id: item.supplierOrderNumber})">查看</a></td>

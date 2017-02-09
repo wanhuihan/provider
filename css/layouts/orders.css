@@ -49,3 +49,6 @@
       font-size: 14px; }
       .delivery-details .delivery-details-cont ul li time {
         color: #ccc; }
+
+.textright {
+  text-align: right; }

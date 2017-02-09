@@ -22,7 +22,7 @@
 					<td>主材-卫浴洁具</td>
 					<td>{{item.brandName}}</td>
 					<td>{{item.specifications}}</td>
-					<td>{{item.price}}</td>
+					<td class="textright">{{item.price | currency:''}}</td>
 					<td><a ui-sref="info.providerInfo.goodsDetails({id: item.materialConfigurationlId})">查看</a></td>
 				</tr>
 			</table>
