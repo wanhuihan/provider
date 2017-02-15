@@ -5,13 +5,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when("", "login")
 
     // 登录界面
-    $stateProvider.state('/', {
-        url: '/login',
-        resolve: {
+    // $stateProvider.state('/', {
+    //     url: '/login',
+    //     resolve: {
 
-        },
+    //     },
 
-        views: {
+    views: {
             'main': {
                 templateUrl: 'templates/login.html',
                 controller: 'login'
