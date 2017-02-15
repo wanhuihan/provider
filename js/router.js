@@ -16,9 +16,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'templates/login.html',
                 controller: 'login'
             },
-            'header': {
-                // templateUrl: 'templates/header.html',
-            }
         },
     })
 
@@ -30,6 +27,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
@@ -51,6 +49,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
@@ -68,6 +67,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
@@ -80,17 +80,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state('orders.refund.details', {
-        url: '/details',       
+        url: '/details?id&code',       
         views: {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
             },
             'main@': {
                 templateUrl: 'templates/orderRefundDetails.html',
+                controller: 'refundDetails'
             }   
         }
     });
@@ -101,6 +103,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
@@ -121,6 +124,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
@@ -137,6 +141,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',
@@ -154,6 +159,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             
             'header': {
                 templateUrl: 'templates/header.html',
+                controller: 'header'
             },            
             'left': {
                 templateUrl: 'templates/sideBar.html',

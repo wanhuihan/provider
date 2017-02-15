@@ -56,4 +56,6 @@
       padding: 0;
       border: 0; }
       .order-refund-details .order-refund-process .order-refund-process-img li img {
-        max-width: 80px; }
+        max-width: 80px;
+        border: 1px solid #ddd;
+        padding: 10px; }
