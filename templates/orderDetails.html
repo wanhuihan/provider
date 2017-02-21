@@ -45,11 +45,11 @@
 						<input type="checkbox"  name="" ng-click="checkboxSelect($event)"></th>
 						<th>商品名称</th>
 						<th>商品编号</th>
-						<th>单位</th>
-						<th>单价</th>
-						<th>数量</th>
-						<th>商品状态</th>
-						<th>总计</th>
+						<th class="textcenter">单位</th>
+						<th class="textright">单价(元)</th>
+						<th class="textcenter">数量</th>
+						<th class="textcenter">商品状态</th>
+						<th class="textright">总计(元)</th>
 					</tr>
 				</thead>
 
@@ -60,11 +60,11 @@
 						</td>
 						<td>{{item.name}}</td>
 						<td>{{item.materialCode}}</td>
-						<td>{{item.unit}}</td>
-						<td>{{item.unitPrice | currency:'¥'}}</td>
-						<td>{{item.count}}</td>						
-						<td>{{item.status}}</td>
-						<td>{{item.total | currency:'¥'}}</td>
+						<td class="textcenter">{{item.unit}}</td>
+						<td class="textright">{{item.unitPrice | currency:''}}</td>
+						<td class="textcenter">{{item.count}}</td>						
+						<td class="textcenter">{{item.status}}</td>
+						<td class="textright">{{item.total | currency:''}}</td>
 
 					</tr>
 
@@ -76,7 +76,7 @@
 						<td></td>
 						<td></td>						
 						<td></td>
-						<td>{{billListTotal}}</td>
+						<td class="textright">{{billListTotal | currency:''}}</td>
 					</tr>
 					<tr>
 						<td colspan="8">

@@ -10,7 +10,7 @@
 			<li><b>供应商名称：</b><span>{{data.supplierName}}</span></li>
 			<li><b>供应商类型：</b><span>{{data.supplierType}}</span></li>
 			<li><b>供货类型：</b><span>{{data.supplyType}}</span></li>
-			<li><b>入驻时间：</b><span>{{data.createTime}}</span></li>
+			<li><b>入驻时间：</b><span>{{data.createTime | date:'yyyy年MM月dd日'}}</span></li>
 			<li><b>联系人：</b><input type="text" ng-model="contact.name"></li>
 			<li><b>联系电话：</b><input type="text" ng-model="contact.cell"></li>
 			<li><b>联系人职位：</b><input type="text" ng-model="contact.title"></li>
