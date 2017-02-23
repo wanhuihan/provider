@@ -1,40 +1,56 @@
-.order-details #orderInfo .table:first-child {
-  width: 80%;
-  margin: 20px 0; }
-  .order-details #orderInfo .table:first-child th {
-    width: 10%; }
+.order-details {
+  padding: 0 15px; }
+  .order-details #orderInfo .table:first-child {
+    width: 80%;
+    margin: 20px 0; }
+    .order-details #orderInfo .table:first-child th {
+      width: 10%; }
+  .order-details .nav-tabs, .order-details .tab-content {
+    margin: 0 15px; }
+  .order-details #deliveryInfo .table {
+    margin-top: 20px; }
+    .order-details #deliveryInfo .table .delivery-info-num {
+      width: 10%; }
+    .order-details #deliveryInfo .table .delivery-info-time {
+      width: 20%; }
+    .order-details #deliveryInfo .table .delivery-info-name {
+      width: 70%; }
+      .order-details #deliveryInfo .table .delivery-info-name span {
+        color: #ccc;
+        font-size: 14px; }
+      .order-details #deliveryInfo .table .delivery-info-name p {
+        margin: 0; }
+    .order-details #deliveryInfo .table .info th {
+      border-bottom: 0; }
+      .order-details #deliveryInfo .table .info th span {
+        line-height: 33px; }
+    .order-details #deliveryInfo .table td {
+      vertical-align: middle; }
+    .order-details #deliveryInfo .table .delivery-receipt p span {
+      padding-right: 15px; }
+    .order-details #deliveryInfo .table .delivery-receipt h6 {
+      color: #5bc0de;
+      font-size: 16px; }
+    .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img {
+      list-style: none;
+      padding: 0; }
+      .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img li {
+        display: inline-block; }
+        .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img li img {
+          max-width: 80px; }
 
-.order-details #deliveryInfo .table {
-  margin-top: 20px; }
-  .order-details #deliveryInfo .table .delivery-info-num {
-    width: 10%; }
-  .order-details #deliveryInfo .table .delivery-info-time {
-    width: 20%; }
-  .order-details #deliveryInfo .table .delivery-info-name {
-    width: 70%; }
-    .order-details #deliveryInfo .table .delivery-info-name span {
-      color: #ccc;
-      font-size: 14px; }
-    .order-details #deliveryInfo .table .delivery-info-name p {
-      margin: 0; }
-  .order-details #deliveryInfo .table .info th {
-    border-bottom: 0; }
-    .order-details #deliveryInfo .table .info th span {
-      line-height: 33px; }
-  .order-details #deliveryInfo .table td {
-    vertical-align: middle; }
-  .order-details #deliveryInfo .table .delivery-receipt p span {
-    padding-right: 15px; }
-  .order-details #deliveryInfo .table .delivery-receipt h6 {
-    color: #5bc0de;
-    font-size: 16px; }
-  .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img {
-    list-style: none;
-    padding: 0; }
-    .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img li {
-      display: inline-block; }
-      .order-details #deliveryInfo .table .delivery-receipt .delivery-receipt-img li img {
-        max-width: 80px; }
+.orders .orders-list {
+  padding: 0 15px; }
+  .orders .orders-list .table th, .orders .orders-list .table td {
+    width: 12%; }
+    .orders .orders-list .table th:last-child, .orders .orders-list .table td:last-child {
+      width: 14%;
+      text-align: right;
+      padding: 8px 25px; }
+      .orders .orders-list .table th:last-child a, .orders .orders-list .table td:last-child a {
+        padding: 2px 10px; }
+    .orders .orders-list .table th:nth-child(6), .orders .orders-list .table td:nth-child(6) {
+      width: 14%; }
 
 .delivery-details {
   border: 1px solid;

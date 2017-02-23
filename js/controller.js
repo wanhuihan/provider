@@ -480,11 +480,12 @@ app.controller("orders", function($http, $scope, ngDialog, cookie, $location, $c
 
 				if ($scope.data[i].status == 0) {
 
-					$scope.data[i].status = '未完成';
+					// $scope.data[i].status = '未完成';
+					$scope.data[i].statusText = '未完成';
 
 				} else {
 
-					$scope.data[i].status = '已完成';
+					$scope.data[i].statusText = '已完成';
 					
 				}
 			}
