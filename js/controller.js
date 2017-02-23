@@ -337,6 +337,57 @@ app.controller("resetPwd", function($scope, $http, $location, $cookies) {
 
 
 /*
+ * 供货信息 - 详情
+*/
+app.controller("goodsDetails", function($http, $scope, ngDialog, cookie, $location, $cookies) {
+
+	if (!cookie.check()) {
+
+		$location.path("/login");
+
+	} else {
+
+		var id = $scope.id;
+
+		$http({
+			url: g.host+'/decoration_supplier/basic/selectMaterialDetailBySupplierId',
+			
+			method: 'post',
+			
+			data: {
+				token: $cookies[g.cookieName],
+				loginName: window.localStorage.loginName,
+				materialConfigurationlId: id
+			},
+
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
+            transformRequest: function(obj) {    
+                var str = [];    
+                for (var p in obj) {    
+                    
+                    if (typeof obj[p] == 'object' ) {
+                        // console.log(p, JSON.stringify(obj[p]));
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
+                    } else {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
+                    }
+                      
+                }    
+                // console.log(str)
+                return str.join("&");    
+            }			
+
+		}).success(function(data) {
+			// console.log(data);
+			$scope.data = data.data.materialConfiguration;
+
+		})
+	} 
+
+})
+
+/*
  * 供货信息
 */
 app.controller("providerInfo", function($http, $scope, ngDialog, cookie, $location, $cookies) {
@@ -380,58 +431,29 @@ app.controller("providerInfo", function($http, $scope, ngDialog, cookie, $locati
 		})
 	} 
 
-})
+	$scope.viewSupplyInfo = function(id) {
 
-/*
- * 供货信息 - 详情
-*/
-app.controller("goodsDetails", function($http, $scope, ngDialog, cookie, $location, $cookies) {
+		// console.log(id);
+		$scope.id = id;
+		// return false;
 
-	if (!cookie.check()) {
+		ngDialog.open({
 
-		$location.path("/login");
-
-	} else {
-
-		// console.log($location.$$search.id);
-		var id = $location.$$search.id;
-
-		$http({
-			url: g.host+'/decoration_supplier/basic/selectMaterialDetailBySupplierId',
+			id: '',
+			scope: $scope,
+			closeByEscape: false,
+			closeByDocument: false,
+			templateUrl: 'templates/viewSupplyInfo.html',
+			className: 'ngdialog ngdialog-theme-default provider-details',
+			width:'600px',
+			controller: 'goodsDetails'
 			
-			method: 'post',
-			
-			data: {
-				token: $cookies[g.cookieName],
-				loginName: window.localStorage.loginName,
-				materialConfigurationlId: id
-			},
-
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-            // 处理接口的问题，传给后端的参数有问题，需要重新解析成json字符串
-            transformRequest: function(obj) {    
-                var str = [];    
-                for (var p in obj) {    
-                    
-                    if (typeof obj[p] == 'object' ) {
-                        // console.log(p, JSON.stringify(obj[p]));
-                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(JSON.stringify(obj[p])))
-                    } else {
-                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
-                    }
-                      
-                }    
-                // console.log(str)
-                return str.join("&");    
-            }			
-
-		}).success(function(data) {
-			// console.log(data);
-			$scope.data = data.data.materialConfiguration;
 		})
-	} 
+	}
 
 })
+
+
 
 /*
  * 订单 - 列表

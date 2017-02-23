@@ -1,9 +1,5 @@
 <div class="provider-details">
-	<ol class="breadcrumb">
-		<li ><a ui-sref="info.generalInfo">信息管理</a></li>
-		<li ><a ui-sref="info.providerInfo">供货信息</a></li>
-		<li class="active">供货详情</li>
-	</ol>
+
 	<div class="provider-details-goods">
 		<h4>商品详情</h4>
 		<!-- <p class="returntab"><a ui-sref="info.providerInfo"><i class="fa fa-reply"></i>返回</a></p> -->
@@ -41,24 +37,18 @@
 				<td colspan="5"><img src="http://placehold.it/50x50" alt=""></td>
 			</tr>
 		</table> -->
-		<div class="row">
-			<div class="col-md-4">
-				<ul>
-					<li><b>商品名称:</b><span>{{data.brandName}}</span></li>
-					<li><b>商品单价:</b><span>{{data.price | currency:''}}</span></li>
-					<li><b>商品规格:</b><span>{{data.specifications}}</span></li>
-					<li><b>施工阶段:</b><span>{{data.materialType}}</span></li>
-					<li><b>添加人:</b><span>{{data.createName}}</span></li>
-				</ul>
-			</div>
-			<div class="col-md-4">
-				<ul>
-					<li><b>添加时间:</b>{{data.createTime | date:'yyyy年MM月dd日'}}</li>
-					<li><b>备注:</b>{{data.remark}}</li>
-					<li><b>商品图片:</b></li>
-					<li><img src="http://placehold.it/50x50" alt=""><img src="http://placehold.it/50x50" alt=""></li>
-				</ul>
-			</div>
+		<div class="provider-details-goods-cont">
+			<ul>
+				<li><b>商品名称:</b><span>{{data.brandName}}</span></li>
+				<li><b>商品单价:</b><span>{{data.price | currency:''}}</span></li>
+				<li><b>商品规格:</b><span>{{data.specifications}}</span></li>
+				<li><b>施工阶段:</b><span>{{data.materialType}}</span></li>
+				<li><b>添加人:</b><span>{{data.createName}}</span></li>
+				<li><b>添加时间:</b>{{data.createTime | date:'yyyy年MM月dd日'}}</li>
+				<li><b>备注:</b>{{data.remark}}</li>
+				<li><b>商品图片:</b></li>
+				<li><img src="http://placehold.it/50x50" alt=""><img src="http://placehold.it/50x50" alt=""></li>
+			</ul>
 		</div>
 	</div>
 </div>
