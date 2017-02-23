@@ -22,3 +22,19 @@
       width: 6%; }
     .provider-info .provider-info-details .table tr th:nth-child(9) {
       width: 10%; }
+    .provider-info .provider-info-details .table a {
+      cursor: pointer; }
+
+.provider-details {
+  margin: 0 auto; }
+  .provider-details .provider-details-goods {
+    margin: 0 15px; }
+    .provider-details .provider-details-goods .provider-details-goods-cont ul li {
+      list-style-type: none;
+      line-height: 30px; }
+      .provider-details .provider-details-goods .provider-details-goods-cont ul li b {
+        padding-right: 20px; }
+      .provider-details .provider-details-goods .provider-details-goods-cont ul li img {
+        margin-right: 3px; }
+  .provider-details .returntab {
+    text-align: right; }

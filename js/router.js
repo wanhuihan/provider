@@ -153,23 +153,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     });
 
-     $stateProvider.state('info.providerInfo.goodsDetails', {
-        url: '/goodsDetails?id',       
-        views: {
+    //  $stateProvider.state('info.providerInfo.goodsDetails', {
+    //     url: '/goodsDetails?id',       
+    //     views: {
             
-            'header': {
-                templateUrl: 'templates/header.html',
-                controller: 'header'
-            },            
-            'left': {
-                templateUrl: 'templates/sideBar.html',
-            },
-            'main@': {
-                templateUrl: 'templates/goodsDetails.html',
-                controller: 'goodsDetails'
-            }   
-        }
-    });
+    //         'header': {
+    //             templateUrl: 'templates/header.html',
+    //             controller: 'header'
+    //         },            
+    //         'left': {
+    //             templateUrl: 'templates/sideBar.html',
+    //         },
+    //         'main@': {
+    //             templateUrl: 'templates/goodsDetails.html',
+    //             controller: 'goodsDetails'
+    //         }   
+    //     }
+    // });
     
 
     // $stateProvider.state('orders.', {
