@@ -4,27 +4,33 @@
 			<li class="active">供货信息</li>
 		</ol>
 		<div class="provider-info-details">
-			<table class="table table-bordered">
-				<tr>
-					<th>商品名称</th>
-					<th>商品编号</th>
-					<th>商品型号</th>
-					<th>商品分类</th>
-					<th>商品品牌</th>
-					<th>商品规格</th>
-					<th>商品单价</th>
-					<th>操作</th>
-				</tr>
-				<tr ng-repeat="item in data">
-					<td>{{item.name}}</td>
-					<td>{{item.materialCode}}</td>
-					<td>{{item.model}}</td>
-					<td>主材-卫浴洁具</td>
-					<td>{{item.brandName}}</td>
-					<td>{{item.specifications}}</td>
-					<td class="textright">{{item.price | currency:''}}</td>
-					<td><a ui-sref="info.providerInfo.goodsDetails({id: item.materialConfigurationlId})">查看</a></td>
-				</tr>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>商品编号</th>
+						<th>商品名称</th>
+						<th>商品品牌</th>
+						<th>商品型号</th>
+						<th>商品分类</th>
+						<th>商品规格</th>
+						<th class="textright">商品单价</th>
+						<th class="textcenter">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in data">
+						<td></td>
+						<td>{{item.materialCode}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.brandName}}</td>
+						<td>{{item.model}}</td>
+						<td>主材-卫浴洁具</td>
+						<td>{{item.specifications}}</td>
+						<td class="textright">{{item.price | currency:''}}</td>
+						<td class="textcenter"><a ui-sref="info.providerInfo.goodsDetails({id: item.materialConfigurationlId})">查看</a></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>

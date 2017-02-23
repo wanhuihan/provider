@@ -1,4 +1,54 @@
 .provider-info {
-	width: 90%;
-	margin: 0 auto;
+	width: 100%;
+
+	.provider-info-details {
+		margin: 0 15px;
+
+		.table {
+
+			th {
+				font-weight: bold;
+			}
+
+			tr {
+
+					& th:nth-child(1) {
+						width: 2%;
+					}
+
+					& th:nth-child(2) {
+						width: 10%;
+					}
+
+					& th:nth-child(3) {
+						width: 18%;
+					}
+
+					& th:nth-child(4) {
+						width: 18%;
+					}
+
+					& th:nth-child(5) {
+						width: 12%;
+					}
+
+					& th:nth-child(6) {
+						width: 10%;
+					}
+
+					& th:nth-child(7) {
+						width: 14%;
+					}
+
+					& th:nth-child(8) {
+						width: 6%;
+					}
+
+					& th:nth-child(9) {
+						width: 10%;
+					}
+
+			}
+		}
+	}
 }

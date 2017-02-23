@@ -1,16 +1,13 @@
 .general-info {
   width: 100%; }
-  .general-info .general-info-cont .preserve {
-    margin-left: 50px; }
-  .general-info .general-info-cont ul {
-    list-style-type: none; }
-    .general-info .general-info-cont ul li {
-      line-height: 50px;
-      border-bottom: 1px solid #eee; }
-      .general-info .general-info-cont ul li .resetpass {
-        margin-left: 50px; }
-      .general-info .general-info-cont ul li > input {
-        height: 26px; }
+  .general-info .general-info-cont {
+    width: 94%;
+    margin: 0 auto; }
+    .general-info .general-info-cont .form-horizontal .form-group {
+      margin-bottom: 8px;
+      vertical-align: middle; }
+      .general-info .general-info-cont .form-horizontal .form-group .col-sm-1, .general-info .general-info-cont .form-horizontal .form-group .col-sm-2 {
+        text-align: left; }
 
 .resetpop {
   z-index: 99999;

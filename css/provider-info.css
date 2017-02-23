@@ -1,3 +1,24 @@
 .provider-info {
-  width: 90%;
-  margin: 0 auto; }
+  width: 100%; }
+  .provider-info .provider-info-details {
+    margin: 0 15px; }
+    .provider-info .provider-info-details .table th {
+      font-weight: bold; }
+    .provider-info .provider-info-details .table tr th:nth-child(1) {
+      width: 2%; }
+    .provider-info .provider-info-details .table tr th:nth-child(2) {
+      width: 10%; }
+    .provider-info .provider-info-details .table tr th:nth-child(3) {
+      width: 18%; }
+    .provider-info .provider-info-details .table tr th:nth-child(4) {
+      width: 18%; }
+    .provider-info .provider-info-details .table tr th:nth-child(5) {
+      width: 12%; }
+    .provider-info .provider-info-details .table tr th:nth-child(6) {
+      width: 10%; }
+    .provider-info .provider-info-details .table tr th:nth-child(7) {
+      width: 14%; }
+    .provider-info .provider-info-details .table tr th:nth-child(8) {
+      width: 6%; }
+    .provider-info .provider-info-details .table tr th:nth-child(9) {
+      width: 10%; }

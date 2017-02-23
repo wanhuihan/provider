@@ -1,22 +1,38 @@
 .general-info {
 	width: 100%;
+	
 	.general-info-cont{
-		.preserve {
-			margin-left: 50px;
-		}
-		ul {
-			list-style-type: none;
-			li {
-				line-height: 50px;
-				border-bottom: 1px solid #eee;
-				.resetpass {
-					margin-left: 50px;
+		width: 94%;
+		margin: 0 auto;
+
+		// .preserve {
+		// 	margin-left: 50px;
+		// }
+
+		.form-horizontal {
+
+			.form-group {
+				margin-bottom: 8px;
+				vertical-align: middle;
+
+				.col-sm-1,.col-sm-2 {
+					text-align: left;
 				}
-				> input {
-					height: 26px;
-				}
-			}	
+			}
 		}
+		// ul {
+		// 	list-style-type: none;
+		// 	li {
+		// 		line-height: 50px;
+		// 		// border-bottom: 1px solid #eee;
+		// 		.resetpass {
+		// 			margin-left: 50px;
+		// 		}
+		// 		> input {
+		// 			height: 26px;
+		// 		}
+		// 	}	
+		// }
 	}	
 }
 // .wrap_top{

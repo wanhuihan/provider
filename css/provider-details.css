@@ -1,4 +1,11 @@
 .provider-details {
   margin: 0 auto; }
+  .provider-details .provider-details-goods {
+    margin: 0 15px; }
+    .provider-details .provider-details-goods .row .col-md-4 ul li {
+      list-style-type: none;
+      line-height: 30px; }
+      .provider-details .provider-details-goods .row .col-md-4 ul li b {
+        padding-right: 20px; }
   .provider-details .returntab {
     text-align: right; }

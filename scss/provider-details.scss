@@ -1,6 +1,24 @@
 .provider-details {
-	// width: 90%;
 	margin: 0 auto;
+	.provider-details-goods {
+		margin: 0 15px;
+
+		.row {
+
+			.col-md-4 {
+				ul {
+					li {
+						list-style-type: none;
+						line-height: 30px;
+
+						b {
+							padding-right:20px;
+						}
+					}
+				}
+			}
+		}
+	}
 	.returntab {
 		text-align: right;
 	}
