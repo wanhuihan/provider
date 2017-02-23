@@ -11,3 +11,7 @@
     padding: 15px; }
   .main .table th {
     font-weight: normal; }
+  .main .breadcrumb {
+    margin: 0 -15px 25px;
+    padding: 15px;
+    border-radius: 0; }
