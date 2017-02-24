@@ -7,6 +7,17 @@
       width: 10%; }
   .order-details .nav-tabs, .order-details .tab-content {
     margin: 0 15px; }
+  .order-details .order-details-cont .row {
+    padding: 30px 0; }
+    .order-details .order-details-cont .row h4 {
+      font-size: 16px;
+      padding-bottom: 8px;
+      margin: 0 15px 10px;
+      border-bottom: 1px solid #eee; }
+  .order-details .order-details-cont .tab-pane h4 {
+    font-size: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee; }
   .order-details #deliveryInfo .table {
     margin-top: 20px; }
     .order-details #deliveryInfo .table .delivery-info-num {

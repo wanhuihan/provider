@@ -9,9 +9,9 @@
 		<li role="presentation" class="active"><a href="" tab="#orderInfo" id="orderInfo-tab" role="tab" data-toggle="tab" aria-controls="orderInfo" aria-expanded="true">订单信息</a></li>
 		<li role="presentation" class=""><a href="" tab="#deliveryInfo" role="tab" id="profile-tab" data-toggle="tab" aria-controls="deliveryInfo" aria-expanded="false">发货信息</a></li>
 	</ul>
-	<div class="tab-content">
+	<div class="tab-content order-details-cont">
 		<div role="tabpanel" class="tab-pane fade active in" id="orderInfo" aria-labelledby="orderInfo-tab">
-			<table class="table table-bordered table-condensed">
+			<!-- <table class="table table-bordered table-condensed">
 
 					<tr>
 						<th>订单状态</th>
@@ -41,8 +41,24 @@
 						<th>供应商</th>
 						<td>{{orderInfo.supplierName}}</td>
 					</tr>
-
-			</table>
+			</table> -->
+			<div class="row">
+				<h4>订单基础信息</h4>
+				<div class="col-md-4">
+					<p><span>订单状态</span>{{orderInfo.status}}</p>
+					<p><span>订单号</span>{{orderInfo.supplierOrderNumber}}</p>
+					<p><span>下单时间</span>{{orderInfo.createTime | date: 'yyyy年MM月dd日'}}</p>
+					<p><span>收货人</span>{{orderInfo.consignee}}</p>
+					<p><span>收货电话</span>{{orderInfo.consigneePhone}}</p>
+				</div>
+				<div class="col-md-4">
+					<p><span>收货地址</span>{{orderInfo.address}}</p>
+					<p><span>进场时间</span>{{orderInfo.setEntryTime | date: 'yyyy年MM月dd日'}}</p>
+					<p><span>所属区域</span>{{orderInfo.areaGenus}}</p>
+					<p><span>供应商</span>{{orderInfo.supplierName}}</p>
+				</div>
+			</div>
+			<h4>商品信息</h4>
 			<table class="table table-bordered order-items-list">
 				<thead>
 					<tr>
