@@ -2,111 +2,83 @@
 
 	<ol class="breadcrumb">
 		<li ><a ui-sref="orders">订单管理</a></li>
+		<li ><a ui-sref="orders">销售订单</a></li>
 		<li class="active">订单详情</li>
 	</ol>	
 
+	<div class="row order-details-info">
+				
+		<div class="col-md-4">
+			<p><span>订单号：</span>{{orderInfo.supplierOrderNumber}}</p>
+			<p><span>订单状态：</span>{{orderInfo.status}}</p>
+			<p><span>下单时间：</span>{{orderInfo.createTime | date: 'yyyy年MM月dd日'}}</p>
+			<p><span>收货人：</span>{{orderInfo.consignee}}</p>
+			<p><span>收货电话：</span>{{orderInfo.consigneePhone}}</p>
+		</div>
+		<div class="col-md-4">
+			<p><span>收货地址：</span>{{orderInfo.address}}</p>
+			<p><span>进场时间：</span>{{orderInfo.setEntryTime | date: 'yyyy年MM月dd日'}}</p>
+			<p><span>所属区域：</span>{{orderInfo.areaGenus}}</p>
+			<p><span>供应商：</span>{{orderInfo.supplierName}}</p>
+		</div>
+	</div>
 	<ul  class="nav nav-tabs" role="tablist">
 		<li role="presentation" class="active"><a href="" tab="#orderInfo" id="orderInfo-tab" role="tab" data-toggle="tab" aria-controls="orderInfo" aria-expanded="true">订单信息</a></li>
 		<li role="presentation" class=""><a href="" tab="#deliveryInfo" role="tab" id="profile-tab" data-toggle="tab" aria-controls="deliveryInfo" aria-expanded="false">发货信息</a></li>
 	</ul>
 	<div class="tab-content order-details-cont">
 		<div role="tabpanel" class="tab-pane fade active in" id="orderInfo" aria-labelledby="orderInfo-tab">
-			<!-- <table class="table table-bordered table-condensed">
+			
+			<div class="order-items-table">
+				<table class="table  order-items-list">
+					<thead>
+						<tr>
+							<th class="textcenter">
+								<input type="checkbox"  name="" ng-click="checkboxSelect($event)"></th>
+							<th>商品编号</th>
+							<th>商品名称</th>
+							<th class="textcenter">商品状态</th>
+							<th class="textcenter">数量</th>
+							<th class="textcenter">单位</th>
+							<th class="textright">单价(元)	
+							<th class="textright">总计(元)</th>
+						</tr>
+					</thead>
 
-					<tr>
-						<th>订单状态</th>
-						<td>{{orderInfo.status}}</td>
-						<th>订单号</th>
-						<td>{{orderInfo.supplierOrderNumber}}</td>
-						<th>下单时间</th>
-						<td>{{orderInfo.createTime | date: 'yyyy年MM月dd日'}}</td>
-					</tr>
+					<tbody>
+						<tr ng-repeat="item in billList" class="items">
+							<td  align="center">
+								<input type="checkbox" name="" ng-if="item.status==1" value="{{item.supplierMaterialsMiddleId}}">
+							</td>
+							<td>{{item.materialCode}}</td>
+							<td>{{item.name}}</td>
+							<td class="textcenter">{{item.status}}</td>
+							<td class="textcenter">{{item.count}}</td>
+							<td class="textcenter">{{item.unit}}</td>
+							<td class="textright">{{item.unitPrice | currency:''}}</td>						
+							<td class="textright">{{item.total | currency:''}}</td>
 
-					<tr>
-						<th>收货人</th>
-						<td>{{orderInfo.consignee}}</td>
-						<th>收货电话</th>
-						<td>{{orderInfo.consigneePhone}}</td>
-						<th>收货地址</th>
-						<td>{{orderInfo.address}}</td>
-					</tr>
+						</tr>
 
-					<tr>
-						<th>进场时间</th>
-						
-						<td>{{orderInfo.setEntryTime | date: 'yyyy年MM月dd日'}}</td>
-
-						<th>所属区域</th>
-						<td>{{orderInfo.areaGenus}}</td>
-						<th>供应商</th>
-						<td>{{orderInfo.supplierName}}</td>
-					</tr>
-			</table> -->
-			<div class="row">
-				<h4>订单基础信息</h4>
-				<div class="col-md-4">
-					<p><span>订单状态</span>{{orderInfo.status}}</p>
-					<p><span>订单号</span>{{orderInfo.supplierOrderNumber}}</p>
-					<p><span>下单时间</span>{{orderInfo.createTime | date: 'yyyy年MM月dd日'}}</p>
-					<p><span>收货人</span>{{orderInfo.consignee}}</p>
-					<p><span>收货电话</span>{{orderInfo.consigneePhone}}</p>
-				</div>
-				<div class="col-md-4">
-					<p><span>收货地址</span>{{orderInfo.address}}</p>
-					<p><span>进场时间</span>{{orderInfo.setEntryTime | date: 'yyyy年MM月dd日'}}</p>
-					<p><span>所属区域</span>{{orderInfo.areaGenus}}</p>
-					<p><span>供应商</span>{{orderInfo.supplierName}}</p>
-				</div>
+						<tr>
+							<td  align="center"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>						
+							<td></td>
+							<td class="textright fontbold">{{billListTotal | currency:''}}</td>
+						</tr>
+						<tr>
+							<td colspan="8" class="textright">
+								<button class="btn btn-sm btn-primary" ng-click="delivery($event)">发货</button>
+								<button class="btn btn-sm btn-default" ng-click="print()"> 订单打印</button>
+							</td>
+						</tr>									
+					</tbody>
+				</table>
 			</div>
-			<h4>商品信息</h4>
-			<table class="table table-bordered order-items-list">
-				<thead>
-					<tr>
-						<th align="center">
-						<input type="checkbox"  name="" ng-click="checkboxSelect($event)"></th>
-						<th>商品名称</th>
-						<th>商品编号</th>
-						<th class="textcenter">单位</th>
-						<th class="textright">单价(元)</th>
-						<th class="textcenter">数量</th>
-						<th class="textcenter">商品状态</th>
-						<th class="textright">总计(元)</th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<tr ng-repeat="item in billList" class="items">
-						<td  align="center">
-							<input type="checkbox" name="" ng-if="item.status==1" value="{{item.supplierMaterialsMiddleId}}">
-						</td>
-						<td>{{item.name}}</td>
-						<td>{{item.materialCode}}</td>
-						<td class="textcenter">{{item.unit}}</td>
-						<td class="textright">{{item.unitPrice | currency:''}}</td>
-						<td class="textcenter">{{item.count}}</td>						
-						<td class="textcenter">{{item.status}}</td>
-						<td class="textright">{{item.total | currency:''}}</td>
-
-					</tr>
-
-					<tr>
-						<td  align="center"></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>						
-						<td></td>
-						<td class="textright">{{billListTotal | currency:''}}</td>
-					</tr>
-					<tr>
-						<td colspan="8">
-							<button class="btn btn-primary" ng-click="delivery($event)">发货</button>
-							<button class="btn btn-default" ng-click="print()"> 订单打印</button>
-						</td>
-					</tr>									
-				</tbody>
-			</table>
 		</div>
 		<div role="tabpanel" class="tab-pane fade" id="deliveryInfo" aria-labelledby="deliveryInfo-tab">
 			<table class="table table-bordered table-condensed" ng-repeat="item in deliveryList">
@@ -116,7 +88,7 @@
 						<span>共计{{item.waybillCodeMap.count}}件   预计进场时间：{{item.waybillCodeMap.setEntryTime | date: 'yyyy年MM月dd日'}}
 						物流公司：{{item.waybillCodeMap.logisticsCompany}}      
 						运单编号: {{item.waybillCodeMap.waybillCode}}</span>
-						<button class="btn btn-primary pull-right">查看物流</button>
+						<button class="btn btn-sm btn-primary pull-right">查看物流</button>
 						</th>
 					</tr>					
 				</thead>			

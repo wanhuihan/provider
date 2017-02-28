@@ -1,31 +1,80 @@
 .order-details {
   padding: 0 15px; }
-  .order-details #orderInfo .table:first-child {
-    width: 80%;
-    margin: 20px 0; }
-    .order-details #orderInfo .table:first-child th {
-      width: 10%; }
+  .order-details .order-details-info {
+    width: 90%;
+    margin: 20px 0 20px 0;
+    padding: 10px 0; }
+    .order-details .order-details-info p {
+      color: #aaa; }
+      .order-details .order-details-info p span {
+        display: inline-block;
+        margin-right: 5px;
+        color: #666; }
   .order-details .nav-tabs, .order-details .tab-content {
     margin: 0 15px; }
-  .order-details .order-details-cont .row {
-    padding: 30px 0; }
-    .order-details .order-details-cont .row h4 {
-      font-size: 16px;
-      padding-bottom: 8px;
-      margin: 0 15px 10px;
-      border-bottom: 1px solid #eee; }
-  .order-details .order-details-cont .tab-pane h4 {
-    font-size: 16px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #eee; }
+  .order-details .nav-tabs {
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee; }
+    .order-details .nav-tabs > li {
+      margin-bottom: -3px; }
+      .order-details .nav-tabs > li > a {
+        width: 120px;
+        padding: 8px 15px;
+        margin-right: 0;
+        border: none;
+        border-radius: 0;
+        text-align: center;
+        border-bottom: 3px solid transparent; }
+  .order-details .nav-tabs > li.active > a {
+    margin-right: 0;
+    color: #666;
+    border: none;
+    border-bottom: 3px solid #428bca;
+    background: #fff; }
+  .order-details .nav-tabs > li.active:hover {
+    border-color: #428bca; }
+  .order-details .nav-tabs > li a:hover {
+    margin-right: 0;
+    border-bottom-color: #428bca; }
+  .order-details .order-details-cont {
+    margin-top: 30px; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(1) {
+      width: 4%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(2) {
+      width: 12%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(3) {
+      width: 34%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(4) {
+      width: 10%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(5) {
+      width: 10%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(6) {
+      width: 10%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(7) {
+      width: 10%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr > :nth-child(8) {
+      width: 10%; }
+    .order-details .order-details-cont .order-items-table .order-items-list thead tr th {
+      font-weight: bold; }
+    .order-details .order-details-cont .order-items-table .order-items-list tbody tr td:first-child {
+      border-right: 1px solid #ddd; }
+    .order-details .order-details-cont .order-items-table .order-items-list tbody tr button {
+      min-width: 70px; }
+    .order-details .order-details-cont .order-items-table .order-items-list tbody tr:last-child td:first-child {
+      border-right: none; }
+    .order-details .order-details-cont .order-items-table .order-items-list .fontbold {
+      font-weight: bold; }
   .order-details #deliveryInfo .table {
     margin-top: 20px; }
+    .order-details #deliveryInfo .table > thead > tr.info > th {
+      background: #eee; }
     .order-details #deliveryInfo .table .delivery-info-num {
       width: 10%; }
     .order-details #deliveryInfo .table .delivery-info-time {
       width: 20%; }
     .order-details #deliveryInfo .table .delivery-info-name {
-      width: 70%; }
+      width: 70%;
+      padding-left: 14px; }
       .order-details #deliveryInfo .table .delivery-info-name span {
         color: #ccc;
         font-size: 14px; }
@@ -63,9 +112,42 @@
     .orders .orders-list .table th:nth-child(6), .orders .orders-list .table td:nth-child(6) {
       width: 14%; }
 
+.delivery-send {
+  width: 385px;
+  padding: 15px 15px 0; }
+  .delivery-send .form-group {
+    vertical-align: middle; }
+    .delivery-send .form-group label {
+      padding-top: 6px; }
+    .delivery-send .form-group button {
+      min-width: 82px;
+      margin-bottom: 0; }
+
+@media print {
+  .sidebar {
+    display: none; }
+  .main {
+    width: 100%;
+    padding: 0;
+    font-size: 12px !important; }
+    .main .order-details-info {
+      width: 100%; }
+      .main .order-details-info .col-md-4 {
+        font-size: 12px !important;
+        width: 50% !important;
+        float: left;
+        padding: 0; }
+  .breadcrumb {
+    display: none; }
+  .nav {
+    display: none; }
+  button {
+    display: none; } }
+
 .delivery-details {
-  border: 1px solid;
-  width: 600px; }
+  border: 1px solid #aaa;
+  width: 600px;
+  padding: 5px; }
   .delivery-details .delivery-details-title h2 {
     font-size: 14px;
     margin: 0;
@@ -82,3 +164,9 @@
 
 .textcenter {
   text-align: center; }
+
+.breadcrumb li a {
+  color: #666; }
+
+.breadcrumb li.active {
+  color: #aaa; }

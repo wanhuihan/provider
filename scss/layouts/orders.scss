@@ -4,17 +4,20 @@
 .order-details {
 	padding: 0 15px;
 
-	#orderInfo {
-		.table {
-			&:first-child {
-				width: 80%;
-				margin: 20px 0;
-				th {
-					width: 10%;
-				}				
-			}
+	.order-details-info {
 
-		}
+		width: 90%;
+		margin: 20px 0 20px 0;
+		padding: 10px 0;
+
+		p {
+			color: #aaa;
+			span {
+				display: inline-block;
+				margin-right:5px;
+				color: #666;
+			}
+		}	
 	}
 
 	// tabs
@@ -22,79 +25,207 @@
 	.nav-tabs, .tab-content {
 		margin: 0 15px;
 	}
-	
-	.order-details-cont {
+	// nav-tab
+	.nav-tabs {
+		border-bottom:1px solid #eee;
+		border-top: 1px solid #eee;
+		
 
-		.row {
+		> li {
+			margin-bottom: -3px;
 
-			padding: 30px 0;
-
-			h4 {
-				font-size: 16px;
-				padding-bottom: 8px;
-				margin: 0 15px 10px;
-				border-bottom: 1px solid #eee;
-			}	
+			> a {
+				width: 120px;
+				padding: 8px 15px;
+				margin-right: 0;
+				border: none;
+				border-radius: 0;
+				text-align: center;
+				border-bottom: 3px solid transparent;
+				// border-bottom-color: transparent;
+			}
+		
 		}
-		.tab-pane {
+	}
+		
+	.nav-tabs {
 
-			h4 {
-				font-size: 16px;
-				padding-bottom: 8px;
-				border-bottom: 1px solid #eee;
+		> li.active {
 
+			> a {
+				margin-right: 0;
+				color: #666;
+				border: none;
+				border-bottom: 3px solid #428bca;
+				background: #fff;
+			}
+			&:hover {
+				border-color: #428bca;
+			}
+
+		}
+	}
+	
+	.nav-tabs {
+
+		> li {
+
+			a:hover {
+				margin-right:0;
+				border-bottom-color: #428bca;
 			}
 		}
-
-		
 	}
 
+	// tab-content
+	.order-details-cont {
+
+		margin-top: 30px;
+
+		.order-items-table {
+
+			.order-items-list {
+			
+				thead {
+
+					tr {
+
+						& > :nth-child(1) {
+							width: 4%;
+						}
+						& > :nth-child(2) {
+							width: 12%;
+						}
+						& > :nth-child(3) {
+							width: 34%;
+						}
+						& > :nth-child(4) {
+							width: 10%;
+						}
+						& > :nth-child(5) {
+							width: 10%;
+						}
+						& > :nth-child(6) {
+							width: 10%;
+						}
+						& > :nth-child(7) {
+							width: 10%;
+						}
+						& > :nth-child(8) {
+							width: 10%;
+						}
+
+						th {
+							font-weight: bold;
+						}
+
+					}
+				}
+				
+				tbody {
+
+					tr {
+						& td:first-child {
+							border-right: 1px solid #ddd;
+						}
+
+						button {
+							min-width: 70px;
+						}
+					}
+					tr:last-child {
+						td:first-child {
+							border-right: none;
+						}
+					}
+				}
+				.fontbold {
+					font-weight: bold;
+				}
+			}
+
+		}
+		
+	}
+	
+	
 	#deliveryInfo {
+
 		.table {
+
+			> thead {
+
+				> tr.info {
+
+					> th {
+						background:#eee;
+					}
+
+				}
+			}
+
 			margin-top:20px;
 
 			.delivery-info-num {
 				width: 10%;
 			}
+
 			.delivery-info-time {
 				width: 20%;
 			}
+
 			.delivery-info-name {
 				width: 70%;
+				padding-left: 14px;
+
 				span {
 					color: #ccc;
 					font-size: 14px;
 				}
+
 				p {
 					margin: 0;
 				}
 			}
+
 			.info {
+
 				th {
 					border-bottom: 0;
+
 					span {
 						line-height: 33px;
 					}
 				}
 			}
+
 			td {
 				vertical-align: middle;
 			}
+
 			.delivery-receipt {
+
 				p {
+
 					span {
+
 						padding-right: 15px;
 					}
 				}
+
 				h6 {
 					color: #5bc0de;
 					font-size: 16px;
 				}
+
 				.delivery-receipt-img {
+
 					list-style: none;
 					padding: 0;
+
 					li {
 						display: inline-block;
+
 						img {
 							max-width: 80px;
 						}
@@ -130,5 +261,59 @@
 	}	
 }
 
+// deliverySend
+.delivery-send {
+	width:385px;
+	padding:15px 15px 0;
+
+	.form-group {
+		vertical-align: middle;
+
+		label {
+			padding-top: 6px;
+		}
+		button {
+			min-width: 82px;
+			margin-bottom: 0;
+		}
+	}
+}
+
+@media print {
+	.sidebar  {
+		display: none;
+	}
+
+	.main {
+		width: 100%;
+		padding: 0 ;
+		font-size: 12px !important;
+
+		.order-details-info {
+			width: 100%;
+
+			.col-md-4 {
+				font-size:12px !important;
+				width: 50% !important;
+				float: left;
+				padding: 0;
+				
+			}
+		}
+	}
+
+	.breadcrumb {
+		display: none;
+	}
+
+	.nav {
+		display: none;
+	}
+
+	button {
+		display: none;
+	}
+
+}
 
 @import '../utilities';

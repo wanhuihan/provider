@@ -573,15 +573,24 @@ app.controller("orderDetails", function($http, $scope, ngDialog, cookie, $locati
 
 			$scope.orderInfo = data.data.supplierMaterialOrder;
 
+				if (data.code == 10 || data.code == 20) {
 
-				if ($scope.orderInfo.status == 0 ) {
+					alert(data.msg);
+					return false;
 
-					$scope.orderInfo.status = "未完成";
+				} else  {
 
-				} else {
-					
-					$scope.orderInfo.status = "已完成";
+					if ($scope.orderInfo.status == 0 ) {
+
+						$scope.orderInfo.status = "未完成";
+
+					} else {
+						
+						$scope.orderInfo.status = "已完成";
+					}
+
 				}
+
 
 		})
 
