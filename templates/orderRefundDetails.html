@@ -1,10 +1,14 @@
 <div class="order-refund-details">
-	
+	<ol class="breadcrumb">
+		<li ><a ui-sref="orders">订单管理</a></li>
+		<li ><a ui-sref="refund">换货订单</a></li>
+		<li class="active">换货订单详情</li>
+	</ol>
 	
 	<table class="table table-bordered table-condensed">
 
 			<tr>
-				<th>退换货订单状态</th>
+				<th>换货订单状态</th>
 				<td>{{data.tuihuoMap.status}}</td>
 				<th>退换货订单号</th>
 				<td>{{data.tuihuoMap.exchangeOrderNumber}}</td>
