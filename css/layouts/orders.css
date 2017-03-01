@@ -9,7 +9,7 @@
       .order-details .order-details-info p span {
         display: inline-block;
         margin-right: 5px;
-        color: #666; }
+        color: #555; }
   .order-details .nav-tabs, .order-details .tab-content {
     margin: 0 15px; }
   .order-details .nav-tabs {
@@ -67,22 +67,35 @@
   .order-details #deliveryInfo .table {
     margin-top: 20px; }
     .order-details #deliveryInfo .table > thead > tr.info > th {
-      background: #eee; }
+      background: #fff; }
+      .order-details #deliveryInfo .table > thead > tr.info > th > span {
+        display: inline-block;
+        padding: 0 8px;
+        color: #aaa; }
+        .order-details #deliveryInfo .table > thead > tr.info > th > span:first-child {
+          padding-right: 50px; }
+        .order-details #deliveryInfo .table > thead > tr.info > th > span > span {
+          color: #555; }
+        .order-details #deliveryInfo .table > thead > tr.info > th > span:nth-child(4) {
+          margin-right: 20px; }
     .order-details #deliveryInfo .table .delivery-info-num {
       width: 10%; }
+    .order-details #deliveryInfo .table .delivery-info-brand {
+      width: 30%; }
     .order-details #deliveryInfo .table .delivery-info-time {
-      width: 20%; }
+      width: 10%; }
     .order-details #deliveryInfo .table .delivery-info-name {
-      width: 70%;
+      width: 50%;
       padding-left: 14px; }
       .order-details #deliveryInfo .table .delivery-info-name span {
         color: #ccc;
         font-size: 14px; }
       .order-details #deliveryInfo .table .delivery-info-name p {
-        margin: 0; }
+        margin: 0;
+        padding-left: 30px; }
     .order-details #deliveryInfo .table .info th {
       border-bottom: 0; }
-      .order-details #deliveryInfo .table .info th span {
+      .order-details #deliveryInfo .table .info th > span {
         line-height: 33px; }
     .order-details #deliveryInfo .table td {
       vertical-align: middle; }
@@ -124,6 +137,8 @@
       margin-bottom: 0; }
 
 @media print {
+  @page {
+    margin: 0; }
   .sidebar {
     display: none; }
   .main {
@@ -141,7 +156,7 @@
     display: none; }
   .nav {
     display: none; }
-  button {
+  .btn {
     display: none; } }
 
 .delivery-details {

@@ -84,28 +84,30 @@
 			<table class="table table-bordered table-condensed" ng-repeat="item in deliveryList">
 				<thead>
 					<tr class="info">
-						<th colspan="3">
-						<span>共计{{item.waybillCodeMap.count}}件   预计进场时间：{{item.waybillCodeMap.setEntryTime | date: 'yyyy年MM月dd日'}}
-						物流公司：{{item.waybillCodeMap.logisticsCompany}}      
-						运单编号: {{item.waybillCodeMap.waybillCode}}</span>
-						<button class="btn btn-sm btn-primary pull-right">查看物流</button>
+						<th colspan="4">
+							<span><span>共计{{item.waybillCodeMap.count}}件</span></span>
+							<span><span>运单编号: </span>{{item.waybillCodeMap.waybillCode}}</span>
+							<span><span>预计进场时间：</span>{{item.waybillCodeMap.setEntryTime | date: 'yyyy-MM-dd hh:mm:ss'}}</span>
+							<span><span>物流公司：</span>{{item.waybillCodeMap.logisticsCompany}}</span>
+							<button class="btn btn-primary  btn-xs">查看物流</button>
 						</th>
 					</tr>					
 				</thead>			
 
 				<tbody>
 					<tr>
-						<td class="delivery-info-name" >名称</td>
+						<td class="delivery-info-name" >商品名称</td>
+						<td class="delivery-info-brand">品牌</td>
 						<td class="delivery-info-num" align="center">数量</td>
-						<td class="delivery-info-time" >下单时间</td>
+						<td class="delivery-info-time textright">下单时间</td>
 					</tr>				
 					<tr ng-repeat="a in item.waybillCodeMap.materialList">
 						<td class="delivery-info-name">
-							<p>"{{a.name}}"</p>
-							<span>品牌: {{a.brandName}}</span>
+							<p>{{a.name}}</p>
 						</td>
+						<td>{{a.brandName}}</td>
 						<td align="center">{{a.count}}</td>
-						<td>{{a.createTime | date: 'yyyy年MM月dd日'}}</td>
+						<td class="textright">{{a.createTime | date: 'yyyy-MM-dd hh:mm:ss'}}</td>
 					</tr>
 
 					<tr class="delivery-receipt" ng-if="item.signMap.logistics.supervisorRoleCode==1">

@@ -576,7 +576,8 @@ app.controller("orderDetails", function($http, $scope, ngDialog, cookie, $locati
 				if (data.code == 10 || data.code == 20) {
 
 					alert(data.msg);
-					return false;
+					history.back();
+					// return false;
 
 				} else  {
 
