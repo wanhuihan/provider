@@ -49,4 +49,5 @@
   min-width: 100px; }
 
 .resetPwd .form .form-group:last-child {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 0; }

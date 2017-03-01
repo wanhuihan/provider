@@ -136,7 +136,39 @@ app.controller("info", function($http, $scope, $window, ngDialog, cookie, $locat
 
 			}).success(function(data) {
 				
+				// 供应商类型类型
+				function supplierType(id)  {
+
+					var providerTypeText = "";
+
+					if (id == 1) {
+
+						providerTypeText = "主材";
+
+					} else {
+
+						providerTypeText = "辅材";
+
+					}
+
+					return providerTypeText;
+				}
+
+				// 供货类型转换文字
+				function supplyType(id) {
+
+					var provideTypeTextArr = ['', '装修', '农业','中医','教育','房地产'];
+
+					return provideTypeTextArr[id];
+
+				}
+
 				$scope.data = data.data.supplier;
+
+				// 供应商类型
+				$scope.data.supplierType = supplierType(data.data.supplier.supplierType);
+				// 供货类型
+				$scope.data.supplyType = supplyType(data.data.supplier.supplyType);
 
 				$scope.contact = {
 
@@ -165,7 +197,7 @@ app.controller("info", function($http, $scope, $window, ngDialog, cookie, $locat
 			closeByDocument: false,
 			templateUrl: 'templates/resetPwd.html',
 			className: 'ngdialog ngdialog-theme-default resetPwd',
-
+			width: '350px',
 			controller: 'resetPwd'
 			
 		})
@@ -245,7 +277,7 @@ app.controller("info", function($http, $scope, $window, ngDialog, cookie, $locat
 /**
  * 修改密码窗口 controller
 **/
-app.controller("resetPwd", function($scope, $http, $location, $cookies) {
+app.controller("resetPwd", function($scope, $http, $location, $cookies, cookie, ngDialog) {
 
 	// console.log($scope.data.loginPassword);				
 	$scope.resetPwd = {
@@ -318,8 +350,7 @@ app.controller("resetPwd", function($scope, $http, $location, $cookies) {
 				if (data.code == 0) {
 
 					alert('修改成功');
-
-					cookie.remove();
+					// cookie.remove();
 					ngDialog.close('resetPwd');
 
 				} else {
